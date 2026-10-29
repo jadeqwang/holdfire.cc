@@ -22,7 +22,7 @@ No video or audio files are kept in this repo.
 
 ## The near-misses
 
-Each entry in `#events` is one `<li class="ev">` with a `data-kind` of `alarm`, `accident` or `crisis`, which drives the filter buttons. Entries named in the lyrics also carry the `lyric-ev` class. The tally and the odds dial count the entries, so adding or removing one needs no other change.
+Each entry in `#events` is one `<li class="ev">` with a `data-kind` of `alarm`, `accident` or `crisis`, which drives the filter buttons. Entries named in the lyrics also carry the `lyric-ev` class. Each also carries `data-md` (its month and day, for the calendar strip and the this-week line) and a `Read more` line of links. The tally, the calendar and the odds dial read the entries, so adding or removing one needs no other change.
 
 ## Deploy
 

@@ -258,6 +258,11 @@ h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transf
 .year svg a:focus-visible .dot { stroke: var(--ink); stroke-width: 3; }
 .onthisday { margin: 0; font-size: .98rem; max-width: 62ch; }
 .onthisday b { font: 600 .7rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--stamp); margin-right: .4rem; }
+.ev .more, .more.inline { max-width: none; display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: baseline; margin: .55rem 0 0; font: 400 .74rem/1.5 var(--f-mono); }
+.more.inline { display: inline-flex; margin: 0 0 0 .4rem; }
+.more > span { font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: .66rem; color: var(--graphite-soft); }
+.more a { color: var(--ink); }
+.more a::after { content: " \2197"; font-size: .9em; }
 .chip { display: inline-block; font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.05em 0.5em; border: 1px solid currentColor; border-radius: 2px; white-space: nowrap; vertical-align: 0.12em; line-height: 1.5; }
 .chip.doc { color: var(--chip-doc); }
 .chip.dis { color: var(--chip-dis); }
@@ -591,6 +596,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>The new Ballistic Missile Early Warning System radar at Thule reported a massive Soviet missile attack. The radar was picking up echoes from the Moon rising over Norway, something its designers had not planned for.</p>
         <p class="held"><b>Held</b> Officers doubted it: among other things, Soviet leader Nikita Khrushchev was in New York at the United Nations, an odd moment to start a war.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#1960:_U.S._false_alarm_from_moonrise" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Roy_Slemon" target="_blank" rel="noopener">Roy Slemon, the officer who asked</a><a href="https://www.globalsecurity.org/wmd/ops/1960-moon.htm" target="_blank" rel="noopener">GlobalSecurity</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -603,6 +609,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>A B-52 broke up in the air and dropped two Mark&nbsp;39 hydrogen bombs, each far more powerful than the Hiroshima bomb. One plunged into a muddy field. On the other, the parachute opened and most of the arming steps went ahead as if the bomb had been dropped on purpose.</p>
         <blockquote>&ldquo;One simple, dynamo-technology, low voltage switch stood between the United States and a major catastrophe.&rdquo;<cite>Parker F. Jones, Sandia engineer, internal memo, 1969 (released 2013)</cite></blockquote>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1961_Goldsboro_B-52_crash" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Command_and_Control_(book)" target="_blank" rel="noopener"><em>Command and Control</em> (book)</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -615,6 +622,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>SAC headquarters lost contact with the early-warning radars and with NORAD all at once, which is what it would look like if they had been destroyed. The &ldquo;independent&rdquo; lines all ran through a single relay station in Colorado, where a motor had overheated.</p>
         <p class="held"><b>Held</b> Bomber crews were put on alert, but a B-52 flying near Thule reached the base and confirmed it was still there.</p>
         <p class="meta"><span class="chip doc">Documented</span> <span>Accounts differ on what failed at the relay station.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#1961:_U.S._false_alarm_from_communications_failure" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.wagingpeace.org/20-mishaps-that-might-have-started-accidental-nuclear-war/" target="_blank" rel="noopener">&ldquo;20 Mishaps&rdquo;</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -627,6 +635,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>In the middle of the Cuban Missile Crisis, a guard at an air defence centre in Duluth saw a figure climbing the fence, shot at it, and set off the sabotage alarm. At Volk Field the alarm was wired wrong: it sounded the klaxon to scramble interceptors armed with nuclear air-to-air rockets.</p>
         <p class="held"><b>Held</b> The intruder was a bear. An officer drove a car onto the runway to stop the planes before they took off.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#U.S._false_alarm_at_interceptor_airbase" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.wagingpeace.org/20-mishaps-that-might-have-started-accidental-nuclear-war/" target="_blank" rel="noopener">&ldquo;20 Mishaps&rdquo;</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -639,6 +648,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>US destroyers were dropping small practice depth charges to force B-59 to the surface. The submarine had lost contact with Moscow, its batteries were failing and the air inside was hot and foul. It carried a nuclear torpedo. The captain, Valentin Savitsky, believing war might already have begun, ordered it prepared, and the political officer agreed.</p>
         <p class="held"><b>Held</b> Launching needed the agreement of a third officer, the flotilla&rsquo;s chief of staff Vasily Arkhipov, who was on board. He said no, and the submarine surfaced.</p>
         <p class="meta"><span class="chip doc">Documented</span> <span>Accounts by surviving crew differ on how close it came.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Vasily_Arkhipov" target="_blank" rel="noopener">Vasily Arkhipov</a><a href="https://en.wikipedia.org/wiki/Soviet_submarine_B-59" target="_blank" rel="noopener">Submarine B-59</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -651,6 +661,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>The same day, an American U-2 sampling air near the North Pole got lost and strayed into Soviet airspace. Soviet fighters went up to intercept it; American fighters carrying nuclear air-to-air missiles went up from Alaska to escort it home. Over Cuba, another U-2 was shot down and its pilot, Major Rudolf Anderson, killed.</p>
         <p class="held"><b>Held</b> President Kennedy did not retaliate for Anderson, and the lost U-2 glided back out on its last fuel.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#U.S._scramble_of_interceptors" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Rudolf_Anderson" target="_blank" rel="noopener">Rudolf Anderson</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -662,6 +673,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="where">Palomares, Almer&iacute;a &middot; Spain</p>
         <p>A B-52 collided with its refuelling tanker. Four hydrogen bombs fell. In two, the conventional explosives went off on impact and scattered plutonium over the farmland; the nuclear explosions did not happen. One bomb fell into the Mediterranean and took months to find.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1966_Palomares_accident" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -674,6 +686,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>An intense solar storm blinded the US early-warning radars at once. Jamming the radars would be a natural first move in an attack, and commanders, reading it as Soviet jamming, began readying nuclear-armed aircraft.</p>
         <p class="held"><b>Held</b> The Air Force&rsquo;s own solar forecasters, then a young service, had been watching the flare. Within about an hour their reports reached commanders, and the aircraft stayed on the ground.</p>
         <p class="meta"><span class="chip doc">Documented</span> <span>Told in full only in 2016.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#1967:_U.S._false_alarm_from_weather" target="_blank" rel="noopener">Wikipedia</a><a href="https://news.agu.org/press-release/1967-solar-storm-nearly-took-us-to-brink-of-war/" target="_blank" rel="noopener">AGU press release</a><a href="https://doi.org/10.1002/2016SW001423" target="_blank" rel="noopener">Knipp et al. 2016</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -685,6 +698,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="where">Thule Air Base, Greenland</p>
         <p>A B-52 carrying four hydrogen bombs caught fire and crashed onto the sea ice near Thule. Its job was to keep watch over the Thule radar, so that if the base went silent commanders would know whether it had really been destroyed. The bombs&rsquo; explosives detonated and spread plutonium across the ice.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1968_Thule_Air_Base_B-52_crash" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -697,6 +711,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>Screens across the US command system showed a full-scale Soviet attack in progress. Someone had loaded a training scenario into the live computers. Interceptors took off.</p>
         <p class="held"><b>Held</b> Within minutes, the raw data from the satellites and radars showed nothing in the sky.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#1979:_U.S._false_alarm_from_computer_training_scenario" target="_blank" rel="noopener">Wikipedia</a><a href="https://nsarchive.gwu.edu/briefing-book/nuclear-vault/2020-03-16/false-warnings-soviet-missile-attacks-during-1979-80-led-alert-actions-us-strategic-forces" target="_blank" rel="noopener">National Security Archive</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -709,6 +724,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>Warning displays began showing incoming Soviet missiles in strange, changing numbers. Bomber crews ran to their planes and started engines. At 2:26 a.m. National Security Advisor Zbigniew Brzezinski was woken by a call: 220 Soviet missiles were on their way. A second call said 2,200. He was about to wake President Carter.</p>
         <p class="held"><b>Held</b> With about a minute to go, a third call came: no other early-warning system saw any missiles. The cause was a single failing computer chip, often quoted as costing 46 cents.</p>
         <p class="meta"><span class="chip doc">Documented</span> <span>Some retellings put Brzezinski&rsquo;s call in November 1979.</span></p>
+        <p class="more"><span>Read more</span><a href="https://nsarchive.gwu.edu/briefing-book/nuclear-vault/2020-03-16/false-warnings-soviet-missile-attacks-during-1979-80-led-alert-actions-us-strategic-forces" target="_blank" rel="noopener">National Security Archive</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -720,6 +736,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="where">Damascus, Arkansas &middot; USA</p>
         <p>A maintenance worker in a Titan&nbsp;II missile silo dropped a heavy socket from a wrench. It fell down the silo and punctured the missile&rsquo;s fuel tank. Hours later the fuel exploded, throwing the warhead, nine megatons, the most powerful ever carried by a US missile, out of the silo. It did not go off. One airman died.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1980_Damascus_Titan_missile_explosion" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Command_and_Control_(book)" target="_blank" rel="noopener"><em>Command and Control</em> (book)</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -732,6 +749,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>Less than a month after the Soviet Union shot down Korean Air Lines Flight 007, the Soviet satellite warning system reported a US missile launch, then another, then more: five in all. The duty officer was Lieutenant Colonel Stanislav Petrov. Procedure was to pass the warning up the chain, toward a decision to retaliate.</p>
         <p class="held"><b>Held</b> Petrov reported it as a false alarm. A real American first strike, he reasoned, would not start with five missiles, and ground radar did not confirm it. The satellites had been fooled by sunlight glinting off high clouds.</p>
         <p class="meta"><span class="chip doc">Documented</span> <span lang="ru">ЛОЖНАЯ ТРЕВОГА</span> <span>(&ldquo;false alarm&rdquo;)</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1983_Soviet_nuclear_false_alarm_incident" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Stanislav_Petrov" target="_blank" rel="noopener">Stanislav Petrov</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -744,6 +762,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>Weeks later, NATO rehearsed the release of nuclear weapons with new procedures and message formats. Soviet leaders, already fearing a surprise attack, put some of their forces on heightened alert.</p>
         <p class="held"><b>Held</b> A US Air Force intelligence officer, Lieutenant General Leonard Perroots, noticed the Soviet moves and chose not to raise the US alert in response.</p>
         <p class="meta"><span class="chip doc">Documented</span> <span>How close it came is still argued over.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Able_Archer_83" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -756,6 +775,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p>Scientists launched a research rocket to study the aurora. Its path looked to Russian radar like a US submarine missile meant to blind Russia&rsquo;s radars with a high-altitude blast. For the first time, the Russian nuclear briefcase was opened and activated in front of President Boris Yeltsin.</p>
         <p class="held"><b>Held</b> Norway had sent notice of the launch weeks earlier, to Russia among some thirty countries; it never reached the radar crews. Watching the rocket head out to sea, Russian officers stood down.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Norwegian_rocket_incident" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -767,6 +787,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="where">Minot, North Dakota &rarr; Barksdale, Louisiana</p>
         <p>A B-52 flew across the United States with six nuclear-armed cruise missiles under its wing. Nobody had noticed they were armed. For about a day and a half, no one knew where they were.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/2007_United_States_Air_Force_nuclear_weapons_incident" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -778,6 +799,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="where">F.&nbsp;E. Warren Air Force Base, Wyoming</p>
         <p>A badly seated circuit card cut off launch crews from fifty Minuteman&nbsp;III missiles for about 45 minutes. The Air Force says the missiles could still have been launched by other means, but the crews on the ground could not see or control them.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://www.globalsecurity.org/wmd/library/news/usa/2010/usa-101027-afps01.htm" target="_blank" rel="noopener">Air Force news report, 2010</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -789,6 +811,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="where">Hawaii &middot; USA</p>
         <p>Every phone in Hawaii received an alert: a ballistic missile was inbound, seek shelter immediately. It was an error at the state emergency agency. It took 38 minutes for the correction to go out.</p>
         <p class="meta"><span class="chip doc">Documented</span> <span>Not a near-launch, but the closest most people have come to living through one.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/2018_Hawaii_false_missile_alert" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
       <div class="coin" aria-hidden="true">H</div>
     </li>
@@ -869,7 +892,7 @@ P(all safe) = (1 &minus; p)<sup>n</sup>
   <h3><span class="n">13</span>Left off the list</h3>
   <p>One famous story did not make the list, because the record is contested:</p>
   <ul>
-    <li id="okinawa" data-md="10-28" data-year="1962" data-title="Okinawa launch order, disputed"><strong>Okinawa, 28 October 1962.</strong> John Bordne, a former missile mechanic, has said that crews on Okinawa received orders to launch nuclear cruise missiles during the Cuban Missile Crisis and were stopped by a captain who doubted them. In 2015 six airmen who served at the Okinawa missile sites at the time told <em>Stars and Stripes</em> it did not happen, and the Air Force said its historians could find no record of it. <span class="chip dis">Disputed</span></li>
+    <li id="okinawa" data-md="10-28" data-year="1962" data-title="Okinawa launch order, disputed"><strong>Okinawa, 28 October 1962.</strong> John Bordne, a former missile mechanic, has said that crews on Okinawa received orders to launch nuclear cruise missiles during the Cuban Missile Crisis and were stopped by a captain who doubted them. In 2015 six airmen who served at the Okinawa missile sites at the time told <em>Stars and Stripes</em> it did not happen, and the Air Force said its historians could find no record of it. <span class="chip dis">Disputed</span> <span class="more inline"><span>Read more</span><a href="https://www.stripes.com/special-reports/featured/cold-war-missileers-refute-okinawa-near-launch-1.385439" target="_blank" rel="noopener"><em>Stars and Stripes</em></a><a href="https://thebulletin.org/2015/10/the-okinawa-missiles-of-october/" target="_blank" rel="noopener"><em>Bulletin of the Atomic Scientists</em></a></span></li>
   </ul>
   <p>And one story moved onto it. The late-night call to Zbigniew Brzezinski is often told as part of the 9 November 1979 alarm; Chatham House&rsquo;s study of near nuclear use dates it to <a href="#e-1980-chip">3 June 1980</a>, and the National Security Archive notes it was the only false alert of Carter&rsquo;s presidency to come in the middle of the night.</p>
 </section>
