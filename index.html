@@ -204,6 +204,7 @@ h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transf
 .classified { display: inline-block; justify-self: start; font: 600 .72rem/1 var(--f-mono); letter-spacing: .24em; text-transform: uppercase; color: var(--stamp); border: 2px solid var(--stamp); padding: .45rem .6rem .4rem; transform: rotate(-2deg); }
 .classified s { text-decoration-thickness: 2px; }
 .file-head h2 { font: 900 clamp(2.8rem, 11vw, 6rem)/.86 var(--f-display); text-transform: uppercase; margin: 0; letter-spacing: .005em; text-wrap: balance; }
+.file-head .sub { font: 600 clamp(.78rem, 2vw, .9rem)/1.4 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--stamp); margin: -.4rem 0 0; }
 .file-head .lyric { font: italic 400 clamp(1.4rem, 4.2vw, 2rem)/1.25 var(--f-lyric); color: var(--ink); margin: 0; max-width: 34ch; }
 .file-head p { margin: 0; max-width: 62ch; }
 .tally { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1rem; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
@@ -584,7 +585,8 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
 <section class="ledger gutter" id="ledger" aria-labelledby="ledger-h">
   <header class="file-head">
     <span class="classified"><s>Top secret</s> &middot; Declassified</span>
-    <h2 id="ledger-h">The running total</h2>
+    <h2 id="ledger-h">Every coin flip</h2>
+    <p class="sub">A deep dive into every near-miss</p>
     <p class="lyric">&ldquo;Secret list of every near-miss and disaster, running total no one ever knew.&rdquo;</p>
     <p>These are the near-misses that scroll past in the film: the false alarms, the lost bombs, the standoffs. For most of them the public found out decades later, through declassified files, memoirs and Freedom of Information requests. The list is incomplete by nature; it is only the ones we know about.</p>
     <figure class="year" id="year" hidden>
