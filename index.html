@@ -242,17 +242,26 @@ h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transf
 .year figcaption { font: 400 .74rem/1.5 var(--f-mono); color: var(--graphite-soft); letter-spacing: .04em; display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; }
 .year .key { display: inline-flex; gap: .3rem .9rem; flex-wrap: wrap; align-items: center; }
 .year .key i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: .3rem; vertical-align: -.05em; }
-.year .k-ev { background: var(--stamp); }
-.year .k-dis { border: 1.5px solid var(--stamp); }
+.year .k-ev { background: radial-gradient(circle at 38% 32%, #fff1c4, #e3b04b 45%, #9a6a12); }
+.year .k-dis { background: radial-gradient(circle at 38% 32%, #ece3cc, #b9a47a 45%, #6f5d3c); }
 .year .k-now { width: 2px !important; height: 12px !important; border-radius: 0 !important; background: var(--ink); }
 .year-wrap { overflow-x: auto; }
-.year svg { width: 100%; min-width: 640px; height: auto; display: block; }
+.year svg { width: 100%; min-width: 820px; height: auto; display: block; }
 .year svg text { font-family: var(--f-mono); font-size: 11px; fill: var(--graphite-soft); }
 .year svg .axis { stroke: var(--graphite); stroke-width: 1.5; }
 .year svg .tick { stroke: var(--rule); }
-.year svg .dot { fill: var(--stamp); }
-.year svg .dot.dis { fill: var(--paper); stroke: var(--stamp); stroke-width: 1.5; }
-.year svg .bar { stroke: var(--stamp); stroke-width: 7; stroke-linecap: round; }
+.year svg .coin2 .rim { fill: none; stroke: #6b4a10; stroke-width: 1.3; }
+.year svg .coin2 .reed { fill: none; stroke: #6b4a10; stroke-width: 1.6; stroke-dasharray: 0.9 1.6; opacity: .7; }
+.year svg .coin2 .emb { fill: none; stroke: #5a3d0a; stroke-width: 1.1; }
+.year svg .coin2 .emb-dot { fill: #5a3d0a; }
+.year svg .coin2 text { font: 600 9.5px var(--f-mono); fill: #4a3208; text-anchor: middle; dominant-baseline: middle; letter-spacing: -.02em; }
+.year svg .coin2 .q { font-size: 7px; }
+.year svg .coin2.dis .rim, .year svg .coin2.dis .reed, .year svg .coin2.dis .emb { stroke: #4d4232; }
+.year svg .coin2.dis .emb-dot { fill: #4d4232; }
+.year svg .coin2.dis text { fill: #3d3426; }
+.year svg .coin2 .face { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .35)); }
+.year svg .span { stroke: #c9962e; stroke-width: 4; stroke-linecap: round; }
+.year svg a.coin-a:hover .face, .year svg a.coin-a:focus-visible .face { stroke: var(--ink); stroke-width: 2; }
 .year svg .now { stroke: var(--ink); stroke-width: 2; }
 .year svg .now-l { fill: var(--ink); font-weight: 600; }
 .year svg a:focus-visible .dot { stroke: var(--ink); stroke-width: 3; }
@@ -573,7 +582,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
     <p class="lyric">&ldquo;Secret list of every near-miss and disaster, running total no one ever knew.&rdquo;</p>
     <p>These are the near-misses that scroll past in the film: the false alarms, the lost bombs, the standoffs. For most of them the public found out decades later, through declassified files, memoirs and Freedom of Information requests. The list is incomplete by nature; it is only the ones we know about.</p>
     <figure class="year" id="year" hidden>
-      <figcaption>Across the calendar: every entry by the day of the year it happened. <span class="key"><i class="k-ev"></i>on the list <i class="k-dis"></i>disputed <i class="k-now"></i>today</span></figcaption>
+      <figcaption>Across the calendar: every entry by the day of the year it happened. <span class="key"><i class="k-ev"></i>on the list <i class="k-dis"></i>disputed (?) <i class="k-now"></i>today</span></figcaption>
       <div class="year-wrap"><svg id="year-svg" viewBox="0 0 1000 150" role="img" aria-labelledby="year-desc"><desc id="year-desc">A timeline of the calendar year from January to December with one mark per near-miss. Two clusters stand out: 13 to 25 January, and 23 to 28 October, the week of the Cuban Missile Crisis.</desc></svg></div>
       <p class="onthisday" id="onthisday" aria-live="polite"></p>
     </figure>
@@ -1136,32 +1145,52 @@ document.documentElement.classList.add('js');
   evs.sort((a, b) => a.d - b.d || a.year - b.year);
 
   const svg = document.getElementById('year-svg');
-  const X0 = 20, X1 = 980, AX = 112;
+  const now = new Date();
+  const today = doy(String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0'));
+  // each near-miss is a coin like the film's: engraved gold, reeded rim, a small emblem, the year across its face
+  const X0 = 26, X1 = 974, R = 17, STEP = 2 * R + 3;
   const x = d => X0 + (X1 - X0) * d / 365;
   const el = (n, attrs, parent) => { const e = document.createElementNS(NS, n); for (const k in attrs) e.setAttribute(k, attrs[k]); (parent || svg).appendChild(e); return e; };
-  el('line', { class: 'axis', x1: X0, x2: X1, y1: AX, y2: AX });
+  // stack coins that would touch into columns over their day
+  const rows = [];
+  evs.forEach(e => {
+    let row = 0;
+    while (rows.some(p => p.row === row && Math.abs(x(p.d) - x(e.d)) < 2 * R + 2)) row++;
+    rows.push({ d: e.d, row }); e.row = row;
+  });
+  const AX = 34 + (Math.max(...rows.map(p => p.row)) + 1) * STEP;
+  svg.setAttribute('viewBox', '0 0 1000 ' + (AX + 30));
+
+  const defs = el('defs', {});
+  const g = el('radialGradient', { id: 'coin-gold', cx: '38%', cy: '32%', r: '75%' }, defs);
+  [['0', '#fff1c4'], ['.45', '#e3b04b'], ['1', '#9a6a12']].forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, g));
+  const gd = el('radialGradient', { id: 'coin-old', cx: '38%', cy: '32%', r: '75%' }, defs);
+  [['0', '#ece3cc'], ['.45', '#b9a47a'], ['1', '#6f5d3c']].forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, gd));
+
+  el('line', { class: 'axis', x1: X0 - 10, x2: X1 + 10, y1: AX, y2: AX });
   MON.forEach((m, i) => {
     const d = doy(String(i + 1).padStart(2, '0') + '-01');
     el('line', { class: 'tick', x1: x(d), x2: x(d), y1: AX - 6, y2: AX + 6 });
     el('text', { x: x(d) + 4, y: AX + 22 }).textContent = m;
   });
-  // stack marks that fall within a few days of each other
-  const placed = [];
+  el('line', { class: 'now', x1: x(today), x2: x(today), y1: 10, y2: AX + 6 });
+
   evs.forEach(e => {
-    let row = 0;
-    while (placed.some(p => p.row === row && Math.abs(x(p.d) - x(e.d)) < 13 + (p.d1 ? x(p.d1) - x(p.d) : 0))) row++;
-    placed.push({ d: e.d, d1: e.d1, row });
-    const y = AX - 14 - row * 15;
-    const a = el('a', { href: e.href });
-    el('title', {}, a).textContent = e.title + ', ' + e.md.replace(/^(\d+)-(\d+)$/, (s, m, d) => (+d) + ' ' + MON[m - 1]) + ' ' + e.year;
-    if (e.d1) el('line', { class: 'bar', x1: x(e.d), x2: x(e.d1), y1: y, y2: y }, a);
-    else el('circle', { class: 'dot' + (e.dis ? ' dis' : ''), cx: x(e.d), cy: y, r: 5.5 }, a);
+    const cx = x(e.d), cy = AX - 6 - R - e.row * STEP;
+    const a = el('a', { href: e.href, class: 'coin-a' });
+    el('title', {}, a).textContent = e.title + ', ' + e.md.replace(/^(\d+)-(\d+)$/, (s, m, d) => (+d) + ' ' + MON[m - 1]) + ' ' + e.year + (e.dis ? ' (disputed)' : '');
+    if (e.d1) el('line', { class: 'span', x1: cx, x2: x(e.d1), y1: AX - 3, y2: AX - 3 }, a);
+    const c = el('g', { class: 'coin2' + (e.dis ? ' dis' : ''), transform: 'translate(' + cx.toFixed(1) + ' ' + cy + ')' }, a);
+    el('circle', { r: R, fill: 'url(#' + (e.dis ? 'coin-old' : 'coin-gold') + ')', class: 'face' }, c);
+    el('circle', { r: R * 0.92, class: 'rim' }, c);
+    el('circle', { r: R * 0.83, class: 'reed' }, c);
+    el('circle', { cy: -R * 0.5, r: R * 0.16, class: 'emb' }, c);
+    el('circle', { cy: -R * 0.5, r: R * 0.05, class: 'emb-dot' }, c);
+    el('text', { y: R * (e.dis ? 0.1 : 0.2), class: 'yr' }, c).textContent = e.year;
+    if (e.dis) el('text', { y: R * 0.64, class: 'q' }, c).textContent = '?';
   });
 
   // today, and whatever on the list falls within a week of it
-  const now = new Date();
-  const today = doy(String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0'));
-  el('line', { class: 'now', x1: x(today), x2: x(today), y1: 10, y2: AX + 6 });
   const lbl = el('text', { class: 'now-l', x: x(today) + (today > 300 ? -6 : 6), y: 20, 'text-anchor': today > 300 ? 'end' : 'start' });
   lbl.textContent = 'today';
 
