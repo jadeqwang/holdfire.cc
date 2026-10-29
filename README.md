@@ -28,6 +28,12 @@ Each entry in `#events` is one `<li class="ev">` with a `data-kind` of `alarm`, 
 
 It is a plain static site: `index.html`, `favicon.*` and `img/`, no build step.
 
-Cloudflare Pages: connect this repo, framework preset "None", build command empty, build output directory `/`. Any other static host works the same way: serve the repo root.
+It deploys as a Cloudflare Worker with static assets (`wrangler.jsonc`), with holdfire.cc attached as its custom domain. `.assetsignore` keeps the repo files that are not part of the site from being served. From the repo root:
+
+```bash
+npx wrangler deploy
+```
+
+Any other static host works too: serve the repo root.
 
 To preview locally: `python3 -m http.server` in the repo root, then open http://localhost:8000.

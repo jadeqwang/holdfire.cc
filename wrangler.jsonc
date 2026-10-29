@@ -1,0 +1,8 @@
+// Cloudflare Workers static-assets deploy: serves index.html, favicons and img/ at holdfire.cc.
+// Deploy with `npx wrangler deploy` from the repo root.
+{
+  "name": "holdfire",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "." },
+  "routes": [{ "pattern": "holdfire.cc", "custom_domain": true }]
+}
