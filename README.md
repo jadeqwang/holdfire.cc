@@ -4,7 +4,7 @@ The watch site for **Hold Fire**, a music video by Jade Wang about counting into
 
 Hold Fire. Song and lyrics by Jade Wang.
 
-**Status: draft.** The film is not out yet. The near-miss list is a first pass at what scrolls past in the film. Check it against the film's actual list, then fact-check it against the sources in the page's Sources section before launch.
+**Status: draft.** The film is not out yet. The near-miss list is a first pass at what scrolls past in the film. Check it against the film's actual list. Each entry has had one fact-check pass against Wikipedia, the National Security Archive and the sources in the page's Sources section.
 
 ## The film
 
