@@ -213,7 +213,7 @@ h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transf
 .filters button { all: unset; cursor: pointer; display: inline-flex; align-items: center; min-height: 36px; padding: 0 .8rem; font: 600 .66rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--graphite-soft); border: 1px solid var(--rule); border-radius: 2px; }
 .filters button[aria-pressed="true"] { color: var(--paper); background: var(--graphite); border-color: var(--graphite); }
 .events { list-style: none; margin: 0; padding: 0; }
-.ev { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 2.4rem; gap: 0 1.25rem; padding-block: 1.6rem; border-bottom: 1px solid var(--rule); scroll-margin-top: 4rem; }
+.ev { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 3rem; gap: 0 1.25rem; padding-block: 1.6rem; border-bottom: 1px solid var(--rule); scroll-margin-top: 4rem; }
 .ev-date { font: 600 .78rem/1.5 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; font-variant-numeric: tabular-nums; padding-top: .35rem; }
 .ev-date .y { display: block; font: 900 2rem/1 var(--f-display); letter-spacing: .01em; color: var(--stamp); }
 .ev h3 { font: 900 clamp(1.5rem, 4.6vw, 2.1rem)/1.02 var(--f-display); text-transform: uppercase; margin: 0 0 .3rem; letter-spacing: .01em; text-wrap: balance; }
@@ -226,12 +226,17 @@ h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transf
 .ev blockquote cite { display: block; font: normal .82rem var(--f-body); color: var(--graphite-soft); margin-top: .3rem; }
 .ev.lyric-ev h3::after { content: "in the song"; display: inline-block; margin-left: .6rem; vertical-align: .35em; font: 600 .6rem/1 var(--f-mono); letter-spacing: .14em; color: var(--paper); background: var(--stamp); padding: .3rem .4rem; border-radius: 2px; }
 /* the coin beside each entry: it lands heads as the entry comes into view */
-.coin { width: 2.4rem; height: 2.4rem; border-radius: 50%; display: grid; place-items: center; margin-top: .3rem;
-  font: 900 1.1rem/1 var(--f-display); color: var(--paper); background: var(--stamp); box-shadow: inset 0 0 0 3px var(--paper), 0 0 0 1px var(--stamp); }
-.js .coin { transition: transform .6s cubic-bezier(.3, 1.6, .5, 1), background .3s; }
-.js .coin:not(.landed) { transform: rotateY(90deg) scale(.6); background: var(--rule); }
+.coin { position: relative; width: 3rem; height: 3rem; border-radius: 50%; display: grid; place-items: center; margin-top: .2rem; padding-top: .45rem;
+  font: 600 .68rem/1 var(--f-mono); letter-spacing: -.02em; color: #4a3208;
+  background: radial-gradient(circle at 38% 32%, #fff1c4, #e3b04b 45%, #9a6a12);
+  box-shadow: inset 0 0 0 1.5px #6b4a10, 0 1px 2px rgba(0, 0, 0, .35); }
+.coin::before { content: ""; position: absolute; top: .5rem; left: 50%; width: .5rem; height: .5rem; margin-left: -.25rem; border-radius: 50%;
+  border: 1px solid #5a3d0a; background: radial-gradient(circle, #5a3d0a 0 22%, transparent 28%); }
+.coin::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; border: 1.5px dotted rgba(107, 74, 16, .7); }
+.js .coin { transition: transform .6s cubic-bezier(.3, 1.6, .5, 1), filter .3s; }
+.js .coin:not(.landed) { transform: rotateY(90deg) scale(.6); filter: grayscale(1) opacity(.5); }
 @media (max-width: 40rem) {
-  .ev { grid-template-columns: minmax(0, 1fr) 2.4rem; }
+  .ev { grid-template-columns: minmax(0, 1fr) 3rem; }
   .ev-date { grid-column: 1; padding-top: 0; margin-bottom: .4rem; display: flex; gap: .6rem; align-items: baseline; }
   .ev-date .y { display: inline; font-size: 1.6rem; }
   .ev-body { grid-column: 1; }
@@ -276,6 +281,7 @@ h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transf
 .chip.doc { color: var(--chip-doc); }
 .chip.dis { color: var(--chip-dis); }
 .chip.inf { color: var(--chip-inf); }
+.chip.rep { color: var(--chip-dis); border-style: dashed; }
 
 /* ── notes: the reading ───────────────────────────────── */
 .notes { max-width: 44rem; margin-inline: auto; padding-block: 2rem 3rem; }
@@ -594,6 +600,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
     <button type="button" data-kind="alarm" aria-pressed="false">False alarms</button>
     <button type="button" data-kind="accident" aria-pressed="false">Accidents</button>
     <button type="button" data-kind="crisis" aria-pressed="false">Standoffs</button>
+    <button type="button" data-kind="other" aria-pressed="false">Other dangers</button>
   </div>
 
   <ol class="events" id="events">
@@ -607,7 +614,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#1960:_U.S._false_alarm_from_moonrise" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Roy_Slemon" target="_blank" rel="noopener">Roy Slemon, the officer who asked</a><a href="https://www.globalsecurity.org/wmd/ops/1960-moon.htm" target="_blank" rel="noopener">GlobalSecurity</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1960</div>
     </li>
 
     <li class="ev" data-kind="accident" id="e-1961-goldsboro" data-md="01-24">
@@ -620,7 +627,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1961_Goldsboro_B-52_crash" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Command_and_Control_(book)" target="_blank" rel="noopener"><em>Command and Control</em> (book)</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1961</div>
     </li>
 
     <li class="ev" data-kind="alarm" id="e-1961-relay" data-md="11-24">
@@ -633,7 +640,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span> <span>Accounts differ on what failed at the relay station.</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#1961:_U.S._false_alarm_from_communications_failure" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.wagingpeace.org/20-mishaps-that-might-have-started-accidental-nuclear-war/" target="_blank" rel="noopener">&ldquo;20 Mishaps&rdquo;</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1961</div>
     </li>
 
     <li class="ev" data-kind="alarm" id="e-1962-bear" data-md="10-25">
@@ -646,7 +653,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#U.S._false_alarm_at_interceptor_airbase" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.wagingpeace.org/20-mishaps-that-might-have-started-accidental-nuclear-war/" target="_blank" rel="noopener">&ldquo;20 Mishaps&rdquo;</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1962</div>
     </li>
 
     <li class="ev lyric-ev" data-kind="crisis" id="e-1962-b59" data-md="10-27">
@@ -659,7 +666,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span> <span>Accounts by surviving crew differ on how close it came.</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Vasily_Arkhipov" target="_blank" rel="noopener">Vasily Arkhipov</a><a href="https://en.wikipedia.org/wiki/Soviet_submarine_B-59" target="_blank" rel="noopener">Submarine B-59</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1962</div>
     </li>
 
     <li class="ev" data-kind="crisis" id="e-1962-u2" data-md="10-27">
@@ -672,7 +679,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#U.S._scramble_of_interceptors" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Rudolf_Anderson" target="_blank" rel="noopener">Rudolf Anderson</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1962</div>
     </li>
 
     <li class="ev" data-kind="accident" id="e-1966-palomares" data-md="01-17">
@@ -684,7 +691,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1966_Palomares_accident" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1966</div>
     </li>
 
     <li class="ev" data-kind="alarm" id="e-1967-sun" data-md="05-23">
@@ -697,7 +704,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span> <span>Told in full only in 2016.</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#1967:_U.S._false_alarm_from_weather" target="_blank" rel="noopener">Wikipedia</a><a href="https://news.agu.org/press-release/1967-solar-storm-nearly-took-us-to-brink-of-war/" target="_blank" rel="noopener">AGU press release</a><a href="https://doi.org/10.1002/2016SW001423" target="_blank" rel="noopener">Knipp et al. 2016</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1967</div>
     </li>
 
     <li class="ev" data-kind="accident" id="e-1968-thule" data-md="01-21">
@@ -709,7 +716,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1968_Thule_Air_Base_B-52_crash" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1968</div>
     </li>
 
     <li class="ev" data-kind="alarm" id="e-1979-tape" data-md="11-09">
@@ -722,7 +729,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#1979:_U.S._false_alarm_from_computer_training_scenario" target="_blank" rel="noopener">Wikipedia</a><a href="https://nsarchive.gwu.edu/briefing-book/nuclear-vault/2020-03-16/false-warnings-soviet-missile-attacks-during-1979-80-led-alert-actions-us-strategic-forces" target="_blank" rel="noopener">National Security Archive</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1979</div>
     </li>
 
     <li class="ev" data-kind="alarm" id="e-1980-chip" data-md="06-03">
@@ -735,11 +742,11 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span> <span>Some retellings put Brzezinski&rsquo;s call in November 1979.</span></p>
         <p class="more"><span>Read more</span><a href="https://nsarchive.gwu.edu/briefing-book/nuclear-vault/2020-03-16/false-warnings-soviet-missile-attacks-during-1979-80-led-alert-actions-us-strategic-forces" target="_blank" rel="noopener">National Security Archive</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1980</div>
     </li>
 
-    <li class="ev" data-kind="accident" id="e-1980-damascus" data-md="09-18">
-      <div class="ev-date"><span class="y">1980</span>18 Sep</div>
+    <li class="ev" data-kind="accident" id="e-1980-damascus" data-md="09-18" data-md-end="09-19">
+      <div class="ev-date"><span class="y">1980</span>18&ndash;19 Sep</div>
       <div class="ev-body">
         <h3>A dropped socket</h3>
         <p class="where">Damascus, Arkansas &middot; USA</p>
@@ -747,7 +754,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1980_Damascus_Titan_missile_explosion" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Command_and_Control_(book)" target="_blank" rel="noopener"><em>Command and Control</em> (book)</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1980</div>
     </li>
 
     <li class="ev lyric-ev" data-kind="alarm" id="e-1983-petrov" data-md="09-26">
@@ -760,7 +767,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span> <span lang="ru">ЛОЖНАЯ ТРЕВОГА</span> <span>(&ldquo;false alarm&rdquo;)</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1983_Soviet_nuclear_false_alarm_incident" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Stanislav_Petrov" target="_blank" rel="noopener">Stanislav Petrov</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1983</div>
     </li>
 
     <li class="ev" data-kind="crisis" id="e-1983-able" data-md="11-07" data-md-end="11-11">
@@ -773,7 +780,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span> <span>How close it came is still argued over.</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Able_Archer_83" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1983</div>
     </li>
 
     <li class="ev" data-kind="alarm" id="e-1995-norway" data-md="01-25">
@@ -786,19 +793,19 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Norwegian_rocket_incident" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">1995</div>
     </li>
 
-    <li class="ev" data-kind="accident" id="e-2007-minot" data-md="08-29">
-      <div class="ev-date"><span class="y">2007</span>29 Aug</div>
+    <li class="ev" data-kind="accident" id="e-2007-minot" data-md="08-29" data-md-end="08-30">
+      <div class="ev-date"><span class="y">2007</span>29&ndash;30 Aug</div>
       <div class="ev-body">
         <h3>Six warheads nobody missed</h3>
         <p class="where">Minot, North Dakota &rarr; Barksdale, Louisiana</p>
-        <p>A B-52 flew across the United States with six nuclear-armed cruise missiles under its wing. Nobody had noticed they were armed. For about a day and a half, no one knew where they were.</p>
+        <p>Six nuclear-armed cruise missiles were loaded under a B-52&rsquo;s wing on 29 August by mistake, and the next day it flew them across the United States. Nobody had noticed they were armed. For about a day and a half, no one knew where they were.</p>
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/2007_United_States_Air_Force_nuclear_weapons_incident" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">2007</div>
     </li>
 
     <li class="ev" data-kind="accident" id="e-2010-warren" data-md="10-23">
@@ -810,7 +817,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span></p>
         <p class="more"><span>Read more</span><a href="https://www.globalsecurity.org/wmd/library/news/usa/2010/usa-101027-afps01.htm" target="_blank" rel="noopener">Air Force news report, 2010</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">2010</div>
     </li>
 
     <li class="ev" data-kind="alarm" id="e-2018-hawaii" data-md="01-13">
@@ -822,7 +829,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="meta"><span class="chip doc">Documented</span> <span>Not a near-launch, but the closest most people have come to living through one.</span></p>
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/2018_Hawaii_false_missile_alert" target="_blank" rel="noopener">Wikipedia</a></p>
       </div>
-      <div class="coin" aria-hidden="true">H</div>
+      <div class="coin" aria-hidden="true">2018</div>
     </li>
   </ol>
 </section>
@@ -912,6 +919,7 @@ P(all safe) = (1 &minus; p)<sup>n</sup>
   <ul class="legend">
     <li><span><span class="chip doc">Documented</span></span><span>It is in a source we can point to.</span></li>
     <li><span><span class="chip dis">Disputed</span></span><span>Told by credible people, contradicted by others, unconfirmed by documents.</span></li>
+    <li><span><span class="chip rep">Reported</span></span><span>Recent, and so far known only from news reporting.</span></li>
     <li><span><span class="chip inf">Illustrative</span></span><span>Our own numbers, to show a shape, not to measure anything.</span></li>
   </ul>
   <div class="tbl"><table class="sources">
