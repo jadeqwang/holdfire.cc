@@ -237,6 +237,27 @@ h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transf
   .ev-body { grid-column: 1; }
   .ev .coin { grid-column: 2; grid-row: 1; }
 }
+/* the calendar strip: every near-miss placed by day of the year */
+.year { margin: .4rem 0 0; display: grid; gap: .6rem; }
+.year figcaption { font: 400 .74rem/1.5 var(--f-mono); color: var(--graphite-soft); letter-spacing: .04em; display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; }
+.year .key { display: inline-flex; gap: .3rem .9rem; flex-wrap: wrap; align-items: center; }
+.year .key i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: .3rem; vertical-align: -.05em; }
+.year .k-ev { background: var(--stamp); }
+.year .k-dis { border: 1.5px solid var(--stamp); }
+.year .k-now { width: 2px !important; height: 12px !important; border-radius: 0 !important; background: var(--ink); }
+.year-wrap { overflow-x: auto; }
+.year svg { width: 100%; min-width: 640px; height: auto; display: block; }
+.year svg text { font-family: var(--f-mono); font-size: 11px; fill: var(--graphite-soft); }
+.year svg .axis { stroke: var(--graphite); stroke-width: 1.5; }
+.year svg .tick { stroke: var(--rule); }
+.year svg .dot { fill: var(--stamp); }
+.year svg .dot.dis { fill: var(--paper); stroke: var(--stamp); stroke-width: 1.5; }
+.year svg .bar { stroke: var(--stamp); stroke-width: 7; stroke-linecap: round; }
+.year svg .now { stroke: var(--ink); stroke-width: 2; }
+.year svg .now-l { fill: var(--ink); font-weight: 600; }
+.year svg a:focus-visible .dot { stroke: var(--ink); stroke-width: 3; }
+.onthisday { margin: 0; font-size: .98rem; max-width: 62ch; }
+.onthisday b { font: 600 .7rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--stamp); margin-right: .4rem; }
 .chip { display: inline-block; font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.05em 0.5em; border: 1px solid currentColor; border-radius: 2px; white-space: nowrap; vertical-align: 0.12em; line-height: 1.5; }
 .chip.doc { color: var(--chip-doc); }
 .chip.dis { color: var(--chip-dis); }
@@ -546,6 +567,11 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
     <h2 id="ledger-h">The running total</h2>
     <p class="lyric">&ldquo;Secret list of every near-miss and disaster, running total no one ever knew.&rdquo;</p>
     <p>These are the near-misses that scroll past in the film: the false alarms, the lost bombs, the standoffs. For most of them the public found out decades later, through declassified files, memoirs and Freedom of Information requests. The list is incomplete by nature; it is only the ones we know about.</p>
+    <figure class="year" id="year" hidden>
+      <figcaption>Across the calendar: every entry by the day of the year it happened. <span class="key"><i class="k-ev"></i>on the list <i class="k-dis"></i>disputed <i class="k-now"></i>today</span></figcaption>
+      <div class="year-wrap"><svg id="year-svg" viewBox="0 0 1000 150" role="img" aria-labelledby="year-desc"><desc id="year-desc">A timeline of the calendar year from January to December with one mark per near-miss. Two clusters stand out: 13 to 25 January, and 23 to 28 October, the week of the Cuban Missile Crisis.</desc></svg></div>
+      <p class="onthisday" id="onthisday" aria-live="polite"></p>
+    </figure>
     <p class="tally" aria-live="polite"><b id="tally">18</b><span id="tally-label">coin flips &middot; all heads</span></p>
   </header>
 
@@ -557,7 +583,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
   </div>
 
   <ol class="events" id="events">
-    <li class="ev" data-kind="alarm" id="e-1960-moon">
+    <li class="ev" data-kind="alarm" id="e-1960-moon" data-md="10-05">
       <div class="ev-date"><span class="y">1960</span>5 Oct</div>
       <div class="ev-body">
         <h3>The Moon rises over Norway</h3>
@@ -569,7 +595,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="accident" id="e-1961-goldsboro">
+    <li class="ev" data-kind="accident" id="e-1961-goldsboro" data-md="01-24">
       <div class="ev-date"><span class="y">1961</span>24 Jan</div>
       <div class="ev-body">
         <h3>One switch over North Carolina</h3>
@@ -581,7 +607,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="alarm" id="e-1961-relay">
+    <li class="ev" data-kind="alarm" id="e-1961-relay" data-md="11-24">
       <div class="ev-date"><span class="y">1961</span>24 Nov</div>
       <div class="ev-body">
         <h3>Every line goes silent</h3>
@@ -593,7 +619,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="alarm" id="e-1962-bear">
+    <li class="ev" data-kind="alarm" id="e-1962-bear" data-md="10-25">
       <div class="ev-date"><span class="y">1962</span>25 Oct</div>
       <div class="ev-body">
         <h3>A bear at the fence</h3>
@@ -605,7 +631,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev lyric-ev" data-kind="crisis" id="e-1962-b59">
+    <li class="ev lyric-ev" data-kind="crisis" id="e-1962-b59" data-md="10-27">
       <div class="ev-date"><span class="y">1962</span>27 Oct</div>
       <div class="ev-body">
         <h3>Depth charges falling</h3>
@@ -617,7 +643,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="crisis" id="e-1962-u2">
+    <li class="ev" data-kind="crisis" id="e-1962-u2" data-md="10-27">
       <div class="ev-date"><span class="y">1962</span>27 Oct</div>
       <div class="ev-body">
         <h3>The wrong way home</h3>
@@ -629,7 +655,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="accident" id="e-1966-palomares">
+    <li class="ev" data-kind="accident" id="e-1966-palomares" data-md="01-17">
       <div class="ev-date"><span class="y">1966</span>17 Jan</div>
       <div class="ev-body">
         <h3>Four bombs over Spain</h3>
@@ -640,7 +666,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="alarm" id="e-1967-sun">
+    <li class="ev" data-kind="alarm" id="e-1967-sun" data-md="05-23">
       <div class="ev-date"><span class="y">1967</span>23 May</div>
       <div class="ev-body">
         <h3>The Sun jams the radars</h3>
@@ -652,7 +678,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="accident" id="e-1968-thule">
+    <li class="ev" data-kind="accident" id="e-1968-thule" data-md="01-21">
       <div class="ev-date"><span class="y">1968</span>21 Jan</div>
       <div class="ev-body">
         <h3>Fire on the sea ice</h3>
@@ -663,7 +689,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="alarm" id="e-1979-tape">
+    <li class="ev" data-kind="alarm" id="e-1979-tape" data-md="11-09">
       <div class="ev-date"><span class="y">1979</span>9 Nov</div>
       <div class="ev-body">
         <h3>A training tape on the live system</h3>
@@ -675,7 +701,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="alarm" id="e-1980-chip">
+    <li class="ev" data-kind="alarm" id="e-1980-chip" data-md="06-03">
       <div class="ev-date"><span class="y">1980</span>3 Jun</div>
       <div class="ev-body">
         <h3>A failing chip</h3>
@@ -687,7 +713,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="accident" id="e-1980-damascus">
+    <li class="ev" data-kind="accident" id="e-1980-damascus" data-md="09-18">
       <div class="ev-date"><span class="y">1980</span>18 Sep</div>
       <div class="ev-body">
         <h3>A dropped socket</h3>
@@ -698,7 +724,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev lyric-ev" data-kind="alarm" id="e-1983-petrov">
+    <li class="ev lyric-ev" data-kind="alarm" id="e-1983-petrov" data-md="09-26">
       <div class="ev-date"><span class="y">1983</span>26 Sep</div>
       <div class="ev-body">
         <h3>The satellites saw five</h3>
@@ -710,8 +736,8 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="crisis" id="e-1983-able">
-      <div class="ev-date"><span class="y">1983</span>Nov</div>
+    <li class="ev" data-kind="crisis" id="e-1983-able" data-md="11-07" data-md-end="11-11">
+      <div class="ev-date"><span class="y">1983</span>7&ndash;11 Nov</div>
       <div class="ev-body">
         <h3>An exercise that looked real</h3>
         <p class="where">NATO exercise Able Archer 83 &middot; Europe</p>
@@ -722,7 +748,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="alarm" id="e-1995-norway">
+    <li class="ev" data-kind="alarm" id="e-1995-norway" data-md="01-25">
       <div class="ev-date"><span class="y">1995</span>25 Jan</div>
       <div class="ev-body">
         <h3>A rocket to study the northern lights</h3>
@@ -734,7 +760,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="accident" id="e-2007-minot">
+    <li class="ev" data-kind="accident" id="e-2007-minot" data-md="08-29">
       <div class="ev-date"><span class="y">2007</span>29 Aug</div>
       <div class="ev-body">
         <h3>Six warheads nobody missed</h3>
@@ -745,7 +771,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="accident" id="e-2010-warren">
+    <li class="ev" data-kind="accident" id="e-2010-warren" data-md="10-23">
       <div class="ev-date"><span class="y">2010</span>23 Oct</div>
       <div class="ev-body">
         <h3>Fifty missiles out of reach</h3>
@@ -756,7 +782,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">H</div>
     </li>
 
-    <li class="ev" data-kind="alarm" id="e-2018-hawaii">
+    <li class="ev" data-kind="alarm" id="e-2018-hawaii" data-md="01-13">
       <div class="ev-date"><span class="y">2018</span>13 Jan</div>
       <div class="ev-body">
         <h3>&ldquo;This is not a drill&rdquo;</h3>
@@ -843,7 +869,7 @@ P(all safe) = (1 &minus; p)<sup>n</sup>
   <h3><span class="n">13</span>Left off the list</h3>
   <p>One famous story did not make the list, because the record is contested:</p>
   <ul>
-    <li><strong>Okinawa, 28 October 1962.</strong> John Bordne, a former missile mechanic, has said that crews on Okinawa received orders to launch nuclear cruise missiles during the Cuban Missile Crisis and were stopped by a captain who doubted them. In 2015 six airmen who served at the Okinawa missile sites at the time told <em>Stars and Stripes</em> it did not happen, and the Air Force said its historians could find no record of it. <span class="chip dis">Disputed</span></li>
+    <li id="okinawa" data-md="10-28" data-year="1962" data-title="Okinawa launch order, disputed"><strong>Okinawa, 28 October 1962.</strong> John Bordne, a former missile mechanic, has said that crews on Okinawa received orders to launch nuclear cruise missiles during the Cuban Missile Crisis and were stopped by a captain who doubted them. In 2015 six airmen who served at the Okinawa missile sites at the time told <em>Stars and Stripes</em> it did not happen, and the Air Force said its historians could find no record of it. <span class="chip dis">Disputed</span></li>
   </ul>
   <p>And one story moved onto it. The late-night call to Zbigniew Brzezinski is often told as part of the 9 November 1979 alarm; Chatham House&rsquo;s study of near nuclear use dates it to <a href="#e-1980-chip">3 June 1980</a>, and the National Security Archive notes it was the only false alert of Carter&rsquo;s presidency to come in the middle of the night.</p>
 </section>
@@ -1070,6 +1096,68 @@ document.documentElement.classList.add('js');
     const k = b.dataset.kind;
     items.forEach(el => { el.hidden = k !== 'all' && el.dataset.kind !== k; });
   }));
+})();
+
+/* ── the calendar strip and "on this day": every near-miss by day of the year ── */
+(function () {
+  'use strict';
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const NS = 'http://www.w3.org/2000/svg';
+  const doy = md => { const [m, d] = md.split('-').map(Number); return Math.round((Date.UTC(2001, m - 1, d) - Date.UTC(2001, 0, 1)) / 864e5); };
+  const evs = [...document.querySelectorAll('#events .ev')].map(el => ({
+    d: doy(el.dataset.md), d1: el.dataset.mdEnd ? doy(el.dataset.mdEnd) : null, md: el.dataset.md,
+    year: el.querySelector('.ev-date .y').textContent, title: el.querySelector('h3').textContent, href: '#' + el.id, dis: false
+  }));
+  const ok = document.getElementById('okinawa');
+  if (ok) evs.push({ d: doy(ok.dataset.md), d1: null, md: ok.dataset.md, year: ok.dataset.year, title: ok.dataset.title, href: '#okinawa', dis: true });
+  evs.sort((a, b) => a.d - b.d || a.year - b.year);
+
+  const svg = document.getElementById('year-svg');
+  const X0 = 20, X1 = 980, AX = 112;
+  const x = d => X0 + (X1 - X0) * d / 365;
+  const el = (n, attrs, parent) => { const e = document.createElementNS(NS, n); for (const k in attrs) e.setAttribute(k, attrs[k]); (parent || svg).appendChild(e); return e; };
+  el('line', { class: 'axis', x1: X0, x2: X1, y1: AX, y2: AX });
+  MON.forEach((m, i) => {
+    const d = doy(String(i + 1).padStart(2, '0') + '-01');
+    el('line', { class: 'tick', x1: x(d), x2: x(d), y1: AX - 6, y2: AX + 6 });
+    el('text', { x: x(d) + 4, y: AX + 22 }).textContent = m;
+  });
+  // stack marks that fall within a few days of each other
+  const placed = [];
+  evs.forEach(e => {
+    let row = 0;
+    while (placed.some(p => p.row === row && Math.abs(x(p.d) - x(e.d)) < 13 + (p.d1 ? x(p.d1) - x(p.d) : 0))) row++;
+    placed.push({ d: e.d, d1: e.d1, row });
+    const y = AX - 14 - row * 15;
+    const a = el('a', { href: e.href });
+    el('title', {}, a).textContent = e.title + ', ' + e.md.replace(/^(\d+)-(\d+)$/, (s, m, d) => (+d) + ' ' + MON[m - 1]) + ' ' + e.year;
+    if (e.d1) el('line', { class: 'bar', x1: x(e.d), x2: x(e.d1), y1: y, y2: y }, a);
+    else el('circle', { class: 'dot' + (e.dis ? ' dis' : ''), cx: x(e.d), cy: y, r: 5.5 }, a);
+  });
+
+  // today, and whatever on the list falls within a week of it
+  const now = new Date();
+  const today = doy(String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0'));
+  el('line', { class: 'now', x1: x(today), x2: x(today), y1: 10, y2: AX + 6 });
+  const lbl = el('text', { class: 'now-l', x: x(today) + (today > 300 ? -6 : 6), y: 20, 'text-anchor': today > 300 ? 'end' : 'start' });
+  lbl.textContent = 'today';
+
+  const diff = e => { let k = e.d - today; if (k > 182) k -= 365; if (k < -182) k += 365; return k; };
+  const when = k => k === 0 ? 'today' : k === -1 ? 'yesterday' : k === 1 ? 'tomorrow' : k < 0 ? (-k) + ' days ago' : 'in ' + k + ' days';
+  const fmtDate = e => { const [m, d] = e.md.split('-').map(Number); return d + ' ' + MON[m - 1] + ' ' + e.year; };
+  const link = e => '<a href="' + e.href + '">' + fmtDate(e) + ': ' + e.title + '</a> (' + when(diff(e)) + ')';
+  const near = evs.filter(e => Math.abs(diff(e)) <= 7 || (e.d1 && today >= e.d && today <= e.d1)).sort((a, b) => diff(a) - diff(b));
+  const out = document.getElementById('onthisday');
+  if (near.length) {
+    out.innerHTML = '<b>This week, years ago</b>' + near.map(link).join('; ') + '.';
+  } else {
+    const next = evs.slice().sort((a, b) => ((diff(a) + 365) % 365) - ((diff(b) + 365) % 365))[0];
+    out.innerHTML = '<b>This week, years ago</b>Nothing on the list falls within a week of today. The next anniversary is ' + link(next) + '.';
+  }
+  document.getElementById('year').hidden = false;
+  // on a narrow screen the strip scrolls sideways: start it with today in view
+  const wrap = svg.parentElement;
+  wrap.scrollLeft = Math.max(0, wrap.scrollWidth * x(today) / 1000 - wrap.clientWidth * 0.7);
 })();
 
 /* ── the odds dial ── */
