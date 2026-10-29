@@ -1,0 +1,1099 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hold Fire</title>
+<meta name="description" content="Hold Fire, a music video by Jade Wang about counting into the dark, the dark forest, and the running list of nuclear near-misses that humanity survived because someone held their fire.">
+<meta property="og:title" content="Hold Fire">
+<meta property="og:description" content="Song and lyrics by Jade Wang. The film, the lyrics, and the history of the near-misses that scroll past in it.">
+<meta property="og:image" content="https://holdfire.cc/img/og.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="A night sky over the curve of an early-warning radar screen, with a row of light pulses counting one, one, two, three, five, eight.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://holdfire.cc/img/og.jpg">
+<meta name="twitter:image:alt" content="A night sky over the curve of an early-warning radar screen, with a row of light pulses counting one, one, two, three, five, eight.">
+<meta name="theme-color" content="#08090c">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Serif:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: the page opens in the dark (the film, the title, the lyrics: someone counting into the night sky)
+   and turns over onto the paper of a declassified file for the reading (the near-misses, the odds, the notes). */
+:root {
+  /* the dark (fixed in both themes) */
+  --void: #08090c;
+  --void-2: #10121a;
+  --void-rule: #232733;
+  --cream: #eef0f2;
+  --silver: #9aa3b2;
+  --dim: #6b7280;
+  --ember: #ff4d2e;
+  --amber: #ffb547;
+  --signal: #9fe8ff;
+  /* the file (follows the viewer's theme) */
+  --paper: #efe9da;
+  --paper-2: #e4dcc7;
+  --graphite: #23211e;
+  --graphite-soft: #5e5a52;
+  --rule: #cdc2a6;
+  --ink: #1f3f8f;
+  --stamp: #b3261e;
+  --chip-doc: #1f3f8f;
+  --chip-dis: #8a5a00;
+  --chip-inf: #7a3a8c;
+  --calc-bg: #e6dec9;
+  --grain: 0.08;
+  --f-display: "Big Shoulders Display", "Impact", "Arial Narrow Bold", sans-serif;
+  --f-lyric: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-body: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1b1a17; --paper-2: #25231f; --graphite: #e9e2d0; --graphite-soft: #aaa392; --rule: #3d3a33;
+    --ink: #8fb0f0; --stamp: #f2765f;
+    --chip-doc: #8fb0f0; --chip-dis: #e0b45a; --chip-inf: #d39be2; --calc-bg: #26241f; --grain: 0.05;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1b1a17; --paper-2: #25231f; --graphite: #e9e2d0; --graphite-soft: #aaa392; --rule: #3d3a33;
+  --ink: #8fb0f0; --stamp: #f2765f;
+  --chip-doc: #8fb0f0; --chip-dis: #e0b45a; --chip-inf: #d39be2; --calc-bg: #26241f; --grain: 0.05;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--void); scroll-padding-top: 4rem; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0; background: var(--void); color: var(--cream);
+  font-family: var(--f-body); font-size: 1.0625rem; line-height: 1.62;
+  -webkit-text-size-adjust: 100%;
+}
+/* film grain over everything */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: var(--grain);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.48  0 0 0 0 0.45  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+img, svg { max-width: 100%; display: block; }
+img { height: auto; }
+[hidden] { display: none !important; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+.gutter { padding-inline: 16px; }
+.mono { font-family: var(--f-mono); }
+.skip { position: absolute; left: 16px; top: -100px; z-index: 100; background: var(--cream); color: var(--void); padding: .4rem .7rem; font: 600 .8rem var(--f-mono); }
+.skip:focus { top: 12px; }
+
+/* ── top bar ───────────────────────────────────────────── */
+.bar {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-block: 14px 12px; max-width: 1280px; margin-inline: auto;
+}
+.bar .mark { font: 900 1.2rem/1 var(--f-display); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--cream); }
+.bar .mark span { color: var(--amber); font: 600 .72rem var(--f-mono); letter-spacing: .2em; margin-left: .6rem; }
+.bar nav { display: flex; gap: .25rem 1.1rem; flex-wrap: wrap; font: 600 .7rem/1.4 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; }
+.bar nav a { color: var(--silver); text-decoration: none; padding-block: .3rem; }
+.bar nav a:hover { color: var(--cream); }
+
+/* ── the film ──────────────────────────────────────────── */
+.film { max-width: 1280px; margin-inline: auto; display: grid; gap: 10px; }
+.screen {
+  position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9; margin-inline: auto; overflow: hidden;
+  background: #000; box-shadow: 0 0 0 1px var(--void-rule), 0 40px 120px -40px rgba(255, 181, 71, .2);
+}
+@supports (height: 1svh) { .screen { max-width: min(100%, calc((100svh - 150px) * 16 / 9)); } }
+@media (min-width: 900px) { .screen { min-width: 840px; } }
+.screen > .poster, .screen iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; display: block; }
+.poster .pulse { fill: var(--amber); }
+@media (prefers-reduced-motion: no-preference) {
+  .poster .pulse { animation: blink 4.2s ease-in-out infinite; animation-delay: calc(var(--g) * .42s); }
+  @keyframes blink { 0%, 100% { opacity: .35; } 8%, 22% { opacity: 1; } }
+}
+.screen .soon {
+  position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: clamp(2.5rem, 8vw, 5rem) clamp(14px, 3vw, 28px) clamp(12px, 2.4vw, 22px);
+  background: linear-gradient(to bottom, rgba(8, 9, 12, 0), rgba(8, 9, 12, .82));
+  display: flex; align-items: baseline; gap: .4rem 1rem; flex-wrap: wrap;
+  font: italic 400 clamp(1.1rem, 3.2vw, 1.75rem)/1.1 var(--f-lyric); color: var(--cream);
+}
+.screen .soon span { font: 600 clamp(.6rem, 1.4vw, .74rem)/1 var(--f-mono); font-style: normal; letter-spacing: .2em; color: var(--amber); }
+.film-notes { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1.5rem; font: 400 .72rem/1.5 var(--f-mono); letter-spacing: .06em; color: var(--silver); font-variant-numeric: tabular-nums; }
+
+/* ── title ─────────────────────────────────────────────── */
+.title { max-width: 1280px; margin-inline: auto; padding-block: clamp(2.5rem, 7vw, 5rem) 1rem; display: grid; gap: 2rem; }
+@media (min-width: 900px) { .title { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; } }
+.stamp { display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; font: 600 .72rem/1.4 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--silver); margin: 0 0 1rem; }
+.stamp .hot { color: var(--ember); }
+h1 {
+  font: 900 clamp(4rem, 17vw, 11rem)/.8 var(--f-display); text-transform: uppercase; margin: 0;
+  letter-spacing: .01em; color: var(--cream);
+}
+h1 .fire { color: var(--ember); }
+.echo { margin-top: 1rem; font: 600 clamp(.85rem, 2.4vw, 1.15rem)/1.2 var(--f-mono); letter-spacing: .3em; color: var(--amber); }
+.by { font: italic 400 clamp(1.6rem, 4.5vw, 2.4rem)/1.1 var(--f-lyric); margin: 1rem 0 0; color: var(--cream); }
+.lede { display: grid; gap: .9rem; font-family: var(--f-lyric); font-size: clamp(1.2rem, 2.6vw, 1.42rem); line-height: 1.42; color: var(--cream); }
+.lede p { margin: 0; max-width: 40ch; }
+.lede em { color: var(--amber); }
+.lede a { color: var(--amber); }
+
+/* ── lyrics ────────────────────────────────────────────── */
+.lyrics { max-width: 1280px; margin-inline: auto; padding-block: clamp(3rem, 8vw, 6rem) 2rem; }
+.kicker { font: 600 .72rem/1.4 var(--f-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--silver); margin: 0 0 .6rem; }
+h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transform: uppercase; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+.lyrics-head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.lyrics-head p { margin: 0; font: 400 .8rem/1.6 var(--f-mono); color: var(--silver); max-width: 60ch; }
+.song { display: grid; gap: clamp(2.2rem, 5vw, 3.4rem); }
+.part { display: grid; gap: .35rem; }
+.part > h3 { margin: 0 0 .5rem; font: 600 .68rem/1.4 var(--f-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.part ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .15rem; }
+.ln {
+  all: unset; box-sizing: border-box; display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: .75rem; align-items: baseline;
+  width: 100%; cursor: pointer; padding: .18rem 0; border-radius: 2px; color: var(--cream);
+  transition: opacity .35s ease, color .35s ease;
+}
+.ln .t { font: 400 .7rem/1 var(--f-mono); color: var(--dim); letter-spacing: .04em; font-variant-numeric: tabular-nums; position: relative; }
+.ln .w { min-width: 0; overflow-wrap: anywhere; }
+.ln:hover .t, .ln:focus-visible .t { color: var(--amber); }
+.ln:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+/* until the film is out (or before its lines are timed) the lyrics are plain text, with no time column */
+.song.static .ln { cursor: default; grid-template-columns: minmax(0, 1fr); gap: 0; }
+.song.static .ln .t { display: none; }
+.song.playing .ln { opacity: .42; }
+.song.playing .ln.now { opacity: 1; }
+.ln.now .t { color: var(--ember); }
+.ln.now .t::before { content: ""; position: absolute; left: -12px; top: .1em; width: 6px; height: 6px; border-radius: 50%; background: var(--ember); }
+@media (max-width: 420px) { .ln { grid-template-columns: 2.7rem minmax(0, 1fr); gap: .5rem; } .ln.now .t::before { left: -9px; } }
+
+/* the two voices, by role */
+.her { font: italic 400 clamp(1.45rem, 4.4vw, 2.35rem)/1.15 var(--f-lyric); }
+.her.sub { font-size: clamp(1.2rem, 3vw, 1.55rem); color: #d7dbe2; }
+.her.hush { font-size: clamp(1.15rem, 2.8vw, 1.45rem); color: var(--silver); }
+.two { font: 700 clamp(1.45rem, 4.6vw, 2.5rem)/1.02 var(--f-display); text-transform: uppercase; letter-spacing: .02em; }
+.imp { font-family: var(--f-display); font-style: normal; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; line-height: .92; font-size: .92em; }
+.hook { font: 900 clamp(2.1rem, 7.6vw, 4.6rem)/.9 var(--f-display); text-transform: uppercase; letter-spacing: .01em; display: block; text-wrap: balance; }
+.mid { font: 700 clamp(1.6rem, 5.2vw, 3rem)/.98 var(--f-display); text-transform: uppercase; display: block; letter-spacing: .01em; }
+.count { font: 600 clamp(.9rem, 2.6vw, 1.25rem)/1.4 var(--f-mono); letter-spacing: .22em; color: var(--amber); text-transform: uppercase; }
+.gang { font: 900 clamp(1.7rem, 6vw, 3.4rem)/.95 var(--f-display); text-transform: uppercase; color: var(--ember); letter-spacing: .03em; }
+.amber { color: var(--amber); }
+.ember { color: var(--ember); }
+.signal { color: var(--signal); }
+.soft { color: var(--silver); }
+/* a pointer from a lyric to the page that tells its history */
+.ref { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin: .7rem 0 0 calc(3.4rem + .75rem); font: 400 .72rem/1.5 var(--f-mono); letter-spacing: .06em; color: var(--silver); }
+.song.static .ref { margin-left: 0; }
+.ref a { color: var(--amber); text-decoration: none; border-bottom: 1px solid currentColor; }
+.ref a:hover { color: var(--cream); }
+@media (max-width: 420px) { .ref { margin-left: calc(2.7rem + .5rem); } }
+
+/* ── dark to paper ─────────────────────────────────────── */
+.turn { height: clamp(9rem, 24vw, 16rem); background: linear-gradient(to bottom, var(--void) 0%, var(--void-2) 30%, var(--paper) 100%); }
+.paper { background: var(--paper); color: var(--graphite); }
+.paper a { color: var(--ink); }
+.paper a:focus-visible, .paper button:focus-visible, .paper input:focus-visible { outline: 2px solid var(--stamp); outline-offset: 3px; }
+
+/* ── the ledger: the near-misses that scroll past in the film ── */
+.ledger { max-width: 64rem; margin-inline: auto; padding-block: 1rem 2rem; }
+.file-head { display: grid; gap: 1rem; padding-block: 1.5rem 1.5rem; border-bottom: 2px solid var(--graphite); }
+.classified { display: inline-block; justify-self: start; font: 600 .72rem/1 var(--f-mono); letter-spacing: .24em; text-transform: uppercase; color: var(--stamp); border: 2px solid var(--stamp); padding: .45rem .6rem .4rem; transform: rotate(-2deg); }
+.classified s { text-decoration-thickness: 2px; }
+.file-head h2 { font: 900 clamp(2.8rem, 11vw, 6rem)/.86 var(--f-display); text-transform: uppercase; margin: 0; letter-spacing: .005em; text-wrap: balance; }
+.file-head .lyric { font: italic 400 clamp(1.4rem, 4.2vw, 2rem)/1.25 var(--f-lyric); color: var(--ink); margin: 0; max-width: 34ch; }
+.file-head p { margin: 0; max-width: 62ch; }
+.tally { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1rem; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.tally b { font: 900 clamp(2.6rem, 8vw, 4rem)/1 var(--f-display); color: var(--stamp); }
+.tally span { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--graphite-soft); }
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.2rem 0 .4rem; }
+.filters button { all: unset; cursor: pointer; display: inline-flex; align-items: center; min-height: 36px; padding: 0 .8rem; font: 600 .66rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--graphite-soft); border: 1px solid var(--rule); border-radius: 2px; }
+.filters button[aria-pressed="true"] { color: var(--paper); background: var(--graphite); border-color: var(--graphite); }
+.events { list-style: none; margin: 0; padding: 0; }
+.ev { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 2.4rem; gap: 0 1.25rem; padding-block: 1.6rem; border-bottom: 1px solid var(--rule); scroll-margin-top: 4rem; }
+.ev-date { font: 600 .78rem/1.5 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; font-variant-numeric: tabular-nums; padding-top: .35rem; }
+.ev-date .y { display: block; font: 900 2rem/1 var(--f-display); letter-spacing: .01em; color: var(--stamp); }
+.ev h3 { font: 900 clamp(1.5rem, 4.6vw, 2.1rem)/1.02 var(--f-display); text-transform: uppercase; margin: 0 0 .3rem; letter-spacing: .01em; text-wrap: balance; }
+.ev .where { font: 400 .74rem/1.5 var(--f-mono); letter-spacing: .06em; color: var(--graphite-soft); margin: 0 0 .7rem; }
+.ev p { margin: 0 0 .6rem; max-width: 62ch; }
+.ev .held { border-left: 3px solid var(--stamp); padding-left: .8rem; }
+.ev .held b { font: 600 .7rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--stamp); margin-right: .3rem; }
+.ev .meta { display: flex; flex-wrap: wrap; gap: .4rem .8rem; align-items: baseline; font: 400 .72rem/1.5 var(--f-mono); color: var(--graphite-soft); }
+.ev blockquote { margin: .8rem 0; padding: 0 0 0 1rem; border-left: 2px solid var(--ink); font: italic 400 1.25rem/1.35 var(--f-lyric); max-width: 50ch; }
+.ev blockquote cite { display: block; font: normal .82rem var(--f-body); color: var(--graphite-soft); margin-top: .3rem; }
+.ev.lyric-ev h3::after { content: "in the song"; display: inline-block; margin-left: .6rem; vertical-align: .35em; font: 600 .6rem/1 var(--f-mono); letter-spacing: .14em; color: var(--paper); background: var(--stamp); padding: .3rem .4rem; border-radius: 2px; }
+/* the coin beside each entry: it lands heads as the entry comes into view */
+.coin { width: 2.4rem; height: 2.4rem; border-radius: 50%; display: grid; place-items: center; margin-top: .3rem;
+  font: 900 1.1rem/1 var(--f-display); color: var(--paper); background: var(--stamp); box-shadow: inset 0 0 0 3px var(--paper), 0 0 0 1px var(--stamp); }
+.js .coin { transition: transform .6s cubic-bezier(.3, 1.6, .5, 1), background .3s; }
+.js .coin:not(.landed) { transform: rotateY(90deg) scale(.6); background: var(--rule); }
+@media (max-width: 40rem) {
+  .ev { grid-template-columns: minmax(0, 1fr) 2.4rem; }
+  .ev-date { grid-column: 1; padding-top: 0; margin-bottom: .4rem; display: flex; gap: .6rem; align-items: baseline; }
+  .ev-date .y { display: inline; font-size: 1.6rem; }
+  .ev-body { grid-column: 1; }
+  .ev .coin { grid-column: 2; grid-row: 1; }
+}
+.chip { display: inline-block; font-family: var(--f-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.05em 0.5em; border: 1px solid currentColor; border-radius: 2px; white-space: nowrap; vertical-align: 0.12em; line-height: 1.5; }
+.chip.doc { color: var(--chip-doc); }
+.chip.dis { color: var(--chip-dis); }
+.chip.inf { color: var(--chip-inf); }
+
+/* ── notes: the reading ───────────────────────────────── */
+.notes { max-width: 44rem; margin-inline: auto; padding-block: 2rem 3rem; }
+.notes p, .notes li { max-width: 65ch; }
+.notes section { padding-block: 2.25rem 0.5rem; border-top: 1px solid var(--rule); margin-top: 1.5rem; scroll-margin-top: 3rem; }
+.notes section > h3 { font: 900 clamp(1.8rem, 6.4vw, 2.6rem)/1.02 var(--f-display); text-transform: uppercase; margin: 0 0 1rem; letter-spacing: .01em; text-wrap: balance; }
+.notes section > h3 .n { font: 600 .9rem var(--f-mono); color: var(--stamp); vertical-align: 0.65em; margin-right: 0.5rem; letter-spacing: 0; }
+.notes h4 { font: 600 1.125rem var(--f-body); margin: 1.75rem 0 0.4rem; }
+.notes .lyric { font: italic 400 clamp(1.35rem, 4vw, 1.8rem)/1.3 var(--f-lyric); color: var(--ink); margin: 0 0 1rem; max-width: 34ch; }
+.notes .legend { display: grid; gap: 0.6rem; padding: 0; list-style: none; margin: 1rem 0; }
+.notes .legend li { display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.75rem; align-items: baseline; }
+@media (max-width: 30rem) { .notes .legend li { grid-template-columns: 1fr; gap: 0.15rem; } }
+.notes blockquote.quote { margin: 1.25rem 0; padding: 0 0 0 1rem; border-left: 2px solid var(--stamp); font: italic 400 1.35rem/1.35 var(--f-lyric); }
+.notes blockquote.quote cite { display: block; font: normal .85rem var(--f-body); color: var(--graphite-soft); margin-top: 0.4rem; }
+.notes .calc { font: .9rem/1.75 var(--f-mono); font-variant-numeric: tabular-nums; background: var(--calc-bg); padding: 1rem 1.1rem; margin: 1.1rem 0; overflow-x: auto; white-space: pre; border-radius: 2px; }
+.notes .calc .c { color: var(--graphite-soft); }
+.notes .calc .r { color: var(--stamp); font-weight: 600; }
+.notes .tbl { overflow-x: auto; margin: 1rem 0 1.25rem; }
+.notes table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+.notes th, .notes td { text-align: left; vertical-align: top; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--rule); }
+.notes th { font: 600 .72rem var(--f-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite-soft); }
+.notes .sources td:first-child { min-width: 14rem; }
+.notes .closing { font: italic 400 1.45rem/1.35 var(--f-lyric); color: var(--ink); }
+.fib { font-family: var(--f-mono); font-variant-numeric: tabular-nums; letter-spacing: .08em; }
+
+/* the odds dial */
+.dial { background: var(--paper-2); padding: 1.1rem 1.1rem 1.25rem; margin: 1.5rem 0; border: 1px solid var(--rule); border-radius: 2px; }
+.dial label { font: .75rem var(--f-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite-soft); display: block; }
+.dial-p { font: 600 clamp(1.4rem, 5vw, 1.9rem) var(--f-mono); font-variant-numeric: tabular-nums; color: var(--ink); margin: .3rem 0 .2rem; }
+.dial input[type="range"] { width: 100%; accent-color: var(--stamp); margin: 0.25rem 0; }
+.dial .ticks { display: flex; justify-content: space-between; font: .7rem var(--f-mono); color: var(--graphite-soft); }
+.dial-out { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .8rem 1.5rem; margin-top: 1rem; }
+.dial-out div { display: grid; gap: .1rem; }
+.dial-out span { font: .72rem/1.4 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--graphite-soft); }
+.dial-out b { font: 600 clamp(1.2rem, 4vw, 1.55rem) var(--f-mono); font-variant-numeric: tabular-nums; color: var(--stamp); }
+.coinrow { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 1rem; }
+.coinrow i { width: 10px; height: 10px; border-radius: 50%; background: var(--stamp); }
+.coinrow i.t { background: var(--graphite-soft); opacity: .35; }
+
+/* ── credits ──────────────────────────────────────────── */
+footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem; display: grid; gap: 1.2rem; color: var(--graphite); }
+.credits .credit { font: italic 400 clamp(1.3rem, 3.6vw, 1.7rem)/1.3 var(--f-lyric); margin: 0; max-width: 40ch; }
+.credits .credit em { font-style: normal; }
+.credits .made { font: 400 .82rem/1.7 var(--f-mono); color: var(--graphite-soft); margin: 0; max-width: 62ch; }
+.credits .sig { font: 900 1.25rem var(--f-display); text-transform: uppercase; letter-spacing: .06em; display: flex; gap: .4rem 1rem; flex-wrap: wrap; align-items: baseline; }
+.credits .sig span { font: 600 .78rem var(--f-mono); letter-spacing: .2em; color: var(--stamp); }
+.follow { display: grid; gap: .9rem; padding-top: 1.6rem; border-top: 1px solid var(--rule); scroll-margin-top: 4rem; }
+.follow h2 { font: 600 .78rem/1.4 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--stamp); margin: 0; }
+.follow ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; font: 400 .82rem/1.65 var(--f-mono); color: var(--graphite-soft); }
+.follow ul b { font-weight: 600; }
+.follow-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .3rem; }
+.follow-actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; font: 600 .68rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; color: var(--graphite); border: 1px solid var(--rule); border-radius: 2px; }
+.follow-actions a:hover { border-color: var(--graphite-soft); }
+.follow-actions a.primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+/* ── the now-playing strip (while the film plays out of view) ── */
+.np {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(8, 9, 12, .94); border-top: 1px solid var(--void-rule); color: var(--cream);
+  display: flex; align-items: center; gap: .9rem; backdrop-filter: blur(6px);
+}
+.np .np-t { font: 400 .7rem var(--f-mono); color: var(--ember); font-variant-numeric: tabular-nums; flex: none; }
+.np .np-line { flex: 1; min-width: 0; font: italic 400 1.1rem/1.2 var(--f-lyric); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.np button { all: unset; cursor: pointer; flex: none; font: 600 .66rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--cream); border: 1px solid var(--void-rule); padding: .55rem .7rem; border-radius: 2px; }
+.np button:hover { border-color: var(--silver); }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#lyrics">Skip to the lyrics</a>
+
+<!-- ═══════════ THE DARK ═══════════ -->
+<header class="bar gutter">
+  <a class="mark" href="#film">Hold Fire<span>1·1·2·3·5·8</span></a>
+  <nav aria-label="Sections"><a href="#film">Film</a><a href="#lyrics">Lyrics</a><a href="#ledger">The near-misses</a><a href="#notes">Notes</a><a href="#follow">More songs</a></nav>
+</header>
+
+<main>
+<section class="film gutter" id="film" aria-label="The film">
+  <div class="screen">
+    <svg class="poster" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Poster for Hold Fire: a night sky over the curve of an early-warning radar screen, with a row of light pulses counting one, one, two, three, five, eight.">
+      <defs>
+        <radialGradient id="sky" cx="50%" cy="38%" r="75%">
+          <stop offset="0" stop-color="#151925"/>
+          <stop offset=".6" stop-color="#0a0c12"/>
+          <stop offset="1" stop-color="#040508"/>
+        </radialGradient>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#ffb547" stop-opacity=".9"/>
+          <stop offset="1" stop-color="#ffb547" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#9fe8ff" stop-opacity="0"/>
+          <stop offset="1" stop-color="#9fe8ff" stop-opacity=".22"/>
+        </linearGradient>
+      </defs>
+      <rect width="1600" height="900" fill="url(#sky)"/>
+      <g fill="#dfe7f2"><circle cx="1567" cy="477" r="2.1" opacity="0.88"/><circle cx="1300" cy="109" r="1.6" opacity="0.55"/><circle cx="542" cy="227" r="1.6" opacity="0.89"/><circle cx="1180" cy="300" r="1.2" opacity="0.81"/><circle cx="1392" cy="44" r="1.6" opacity="0.64"/><circle cx="205" cy="113" r="2.1" opacity="0.61"/><circle cx="236" cy="166" r="1" opacity="0.58"/><circle cx="463" cy="250" r="1" opacity="0.43"/><circle cx="11" cy="612" r="0.8" opacity="0.59"/><circle cx="428" cy="453" r="1.6" opacity="0.51"/><circle cx="726" cy="422" r="0.8" opacity="0.74"/><circle cx="651" cy="357" r="2.1" opacity="0.58"/><circle cx="690" cy="574" r="1.2" opacity="0.58"/><circle cx="841" cy="253" r="0.8" opacity="0.74"/><circle cx="1501" cy="11" r="1" opacity="0.73"/><circle cx="986" cy="353" r="1" opacity="0.61"/><circle cx="535" cy="479" r="2.1" opacity="0.79"/><circle cx="291" cy="74" r="0.8" opacity="0.31"/><circle cx="727" cy="114" r="1.2" opacity="0.33"/><circle cx="1410" cy="81" r="1" opacity="0.37"/><circle cx="1058" cy="358" r="1.2" opacity="0.29"/><circle cx="11" cy="600" r="1.6" opacity="0.49"/><circle cx="484" cy="507" r="0.8" opacity="0.59"/><circle cx="404" cy="125" r="0.8" opacity="0.65"/><circle cx="145" cy="432" r="0.8" opacity="0.6"/><circle cx="1598" cy="261" r="1.6" opacity="0.57"/><circle cx="360" cy="73" r="1" opacity="0.81"/><circle cx="1359" cy="479" r="0.8" opacity="0.29"/><circle cx="143" cy="391" r="2.1" opacity="0.76"/><circle cx="1565" cy="579" r="1.6" opacity="0.74"/><circle cx="290" cy="424" r="0.8" opacity="0.27"/><circle cx="857" cy="220" r="1" opacity="0.33"/><circle cx="1109" cy="496" r="1.6" opacity="0.59"/><circle cx="1494" cy="384" r="1.6" opacity="0.74"/><circle cx="1569" cy="271" r="0.8" opacity="0.38"/><circle cx="1236" cy="615" r="1.6" opacity="0.61"/><circle cx="984" cy="602" r="1" opacity="0.63"/><circle cx="296" cy="504" r="0.8" opacity="0.85"/><circle cx="796" cy="362" r="2.1" opacity="0.51"/><circle cx="1585" cy="480" r="1.6" opacity="0.73"/><circle cx="75" cy="380" r="0.8" opacity="0.28"/><circle cx="915" cy="518" r="2.1" opacity="0.86"/><circle cx="1087" cy="95" r="1.2" opacity="0.41"/><circle cx="1540" cy="453" r="2.1" opacity="0.87"/><circle cx="1019" cy="524" r="1" opacity="0.85"/><circle cx="689" cy="639" r="2.1" opacity="0.59"/><circle cx="1043" cy="322" r="1.2" opacity="0.46"/><circle cx="1226" cy="477" r="1.2" opacity="0.54"/><circle cx="1580" cy="53" r="0.8" opacity="0.9"/><circle cx="611" cy="111" r="0.8" opacity="0.72"/><circle cx="102" cy="438" r="1" opacity="0.42"/><circle cx="1256" cy="424" r="0.8" opacity="0.27"/><circle cx="1097" cy="192" r="1" opacity="0.44"/><circle cx="333" cy="148" r="1" opacity="0.85"/><circle cx="1311" cy="221" r="0.8" opacity="0.59"/><circle cx="116" cy="617" r="1.2" opacity="0.31"/><circle cx="1183" cy="143" r="0.8" opacity="0.6"/><circle cx="781" cy="537" r="1.2" opacity="0.56"/><circle cx="368" cy="43" r="0.8" opacity="0.68"/><circle cx="469" cy="163" r="1.2" opacity="0.64"/><circle cx="979" cy="303" r="0.8" opacity="0.35"/><circle cx="927" cy="427" r="1.6" opacity="0.3"/><circle cx="114" cy="464" r="1.6" opacity="0.66"/><circle cx="1021" cy="430" r="1.2" opacity="0.9"/><circle cx="1129" cy="114" r="1" opacity="0.6"/><circle cx="1328" cy="640" r="1" opacity="0.63"/><circle cx="606" cy="14" r="0.8" opacity="0.89"/><circle cx="526" cy="358" r="0.8" opacity="0.89"/><circle cx="1285" cy="453" r="1.2" opacity="0.85"/><circle cx="584" cy="197" r="0.8" opacity="0.5"/><circle cx="1254" cy="238" r="2.1" opacity="0.67"/><circle cx="611" cy="585" r="1.2" opacity="0.63"/><circle cx="376" cy="360" r="1" opacity="0.66"/><circle cx="222" cy="462" r="1.6" opacity="0.53"/><circle cx="1032" cy="77" r="0.8" opacity="0.86"/><circle cx="481" cy="60" r="0.8" opacity="0.46"/><circle cx="680" cy="488" r="2.1" opacity="0.36"/><circle cx="168" cy="247" r="1.6" opacity="0.48"/><circle cx="1565" cy="500" r="0.8" opacity="0.78"/><circle cx="116" cy="445" r="1" opacity="0.52"/><circle cx="223" cy="618" r="1" opacity="0.77"/><circle cx="860" cy="484" r="1" opacity="0.51"/><circle cx="299" cy="473" r="1" opacity="0.74"/><circle cx="1072" cy="278" r="2.1" opacity="0.78"/><circle cx="538" cy="62" r="1" opacity="0.25"/><circle cx="444" cy="547" r="1" opacity="0.84"/><circle cx="108" cy="292" r="0.8" opacity="0.35"/><circle cx="637" cy="373" r="2.1" opacity="0.5"/><circle cx="1571" cy="224" r="0.8" opacity="0.42"/><circle cx="1438" cy="74" r="1" opacity="0.72"/><circle cx="763" cy="623" r="0.8" opacity="0.41"/><circle cx="158" cy="454" r="1.2" opacity="0.59"/><circle cx="947" cy="291" r="1" opacity="0.29"/><circle cx="453" cy="424" r="2.1" opacity="0.52"/><circle cx="249" cy="121" r="1.2" opacity="0.31"/><circle cx="620" cy="156" r="0.8" opacity="0.83"/><circle cx="1005" cy="52" r="1.6" opacity="0.27"/><circle cx="1487" cy="410" r="2.1" opacity="0.39"/><circle cx="436" cy="2" r="1.2" opacity="0.8"/><circle cx="433" cy="372" r="0.8" opacity="0.71"/><circle cx="1282" cy="155" r="0.8" opacity="0.76"/><circle cx="350" cy="259" r="0.8" opacity="0.63"/><circle cx="909" cy="476" r="1.6" opacity="0.51"/><circle cx="601" cy="395" r="0.8" opacity="0.33"/><circle cx="1222" cy="25" r="0.8" opacity="0.85"/><circle cx="1506" cy="228" r="1" opacity="0.78"/><circle cx="848" cy="248" r="2.1" opacity="0.33"/><circle cx="1370" cy="472" r="1" opacity="0.3"/><circle cx="249" cy="407" r="1" opacity="0.49"/><circle cx="257" cy="617" r="1.6" opacity="0.34"/><circle cx="524" cy="234" r="1" opacity="0.57"/><circle cx="545" cy="225" r="2.1" opacity="0.64"/><circle cx="1576" cy="433" r="1" opacity="0.43"/><circle cx="1212" cy="208" r="0.8" opacity="0.58"/><circle cx="1437" cy="210" r="1" opacity="0.88"/><circle cx="1129" cy="394" r="0.8" opacity="0.67"/><circle cx="1478" cy="27" r="1.2" opacity="0.64"/><circle cx="1513" cy="135" r="1" opacity="0.27"/><circle cx="998" cy="483" r="1" opacity="0.68"/><circle cx="277" cy="244" r="1" opacity="0.74"/><circle cx="1105" cy="286" r="1.2" opacity="0.71"/><circle cx="143" cy="304" r="0.8" opacity="0.85"/><circle cx="972" cy="449" r="1" opacity="0.52"/><circle cx="568" cy="326" r="1.2" opacity="0.74"/><circle cx="1494" cy="63" r="2.1" opacity="0.67"/><circle cx="735" cy="242" r="0.8" opacity="0.46"/><circle cx="1341" cy="171" r="1.6" opacity="0.42"/><circle cx="1306" cy="122" r="1" opacity="0.69"/><circle cx="1114" cy="181" r="1.6" opacity="0.52"/><circle cx="1236" cy="16" r="2.1" opacity="0.8"/><circle cx="252" cy="536" r="0.8" opacity="0.75"/><circle cx="1003" cy="537" r="1.6" opacity="0.78"/><circle cx="376" cy="416" r="2.1" opacity="0.37"/><circle cx="1482" cy="437" r="1" opacity="0.71"/><circle cx="726" cy="256" r="1.2" opacity="0.65"/><circle cx="782" cy="367" r="2.1" opacity="0.56"/><circle cx="490" cy="242" r="1" opacity="0.35"/><circle cx="273" cy="286" r="1.2" opacity="0.8"/><circle cx="103" cy="59" r="1" opacity="0.84"/><circle cx="1555" cy="227" r="1" opacity="0.61"/><circle cx="880" cy="334" r="2.1" opacity="0.77"/><circle cx="1191" cy="388" r="1.6" opacity="0.86"/><circle cx="1248" cy="623" r="2.1" opacity="0.29"/><circle cx="779" cy="250" r="1.2" opacity="0.28"/><circle cx="627" cy="255" r="1.2" opacity="0.81"/><circle cx="716" cy="574" r="1.6" opacity="0.58"/><circle cx="1444" cy="28" r="1" opacity="0.71"/><circle cx="243" cy="110" r="1" opacity="0.3"/><circle cx="869" cy="268" r="1" opacity="0.81"/><circle cx="356" cy="145" r="1" opacity="0.28"/><circle cx="1042" cy="107" r="0.8" opacity="0.41"/><circle cx="219" cy="366" r="1" opacity="0.71"/><circle cx="463" cy="45" r="1" opacity="0.7"/><circle cx="1196" cy="296" r="0.8" opacity="0.32"/><circle cx="279" cy="296" r="1" opacity="0.65"/><circle cx="1485" cy="5" r="1" opacity="0.3"/><circle cx="1004" cy="29" r="2.1" opacity="0.58"/><circle cx="1261" cy="109" r="0.8" opacity="0.38"/><circle cx="1113" cy="268" r="1.6" opacity="0.45"/><circle cx="521" cy="344" r="0.8" opacity="0.69"/><circle cx="582" cy="338" r="1.6" opacity="0.88"/><circle cx="1381" cy="103" r="0.8" opacity="0.8"/><circle cx="936" cy="340" r="1" opacity="0.51"/><circle cx="640" cy="58" r="1" opacity="0.7"/><circle cx="822" cy="569" r="1.2" opacity="0.8"/><circle cx="1172" cy="531" r="1.2" opacity="0.77"/><circle cx="806" cy="624" r="2.1" opacity="0.71"/><circle cx="1041" cy="5" r="0.8" opacity="0.49"/><circle cx="1038" cy="226" r="2.1" opacity="0.4"/><circle cx="118" cy="461" r="2.1" opacity="0.29"/></g>
+      <g fill="none" stroke="#9fe8ff" stroke-opacity=".16" stroke-width="1.5">
+        <circle cx="800" cy="1180" r="420"/>
+        <circle cx="800" cy="1180" r="560"/>
+        <circle cx="800" cy="1180" r="700"/>
+        <circle cx="800" cy="1180" r="840"/>
+        <path d="M800 1180V200M80 1180 1520 1180" stroke-dasharray="2 10"/>
+      </g>
+      <path d="M800 1180 L1300 520 A840 840 0 0 0 1180 430 Z" fill="url(#sweep)"/>
+      <circle cx="1188" cy="602" r="5" fill="#ff4d2e"/>
+      <circle cx="1188" cy="602" r="16" fill="none" stroke="#ff4d2e" stroke-opacity=".5" stroke-width="1.5"/>
+      <g><circle class="pulse" style="--g:0" cx="480" cy="380" r="6.5"/><circle class="pulse" style="--g:1" cx="552" cy="380" r="6.5"/><circle class="pulse" style="--g:2" cx="624" cy="380" r="6.5"/><circle class="pulse" style="--g:2" cx="644" cy="380" r="6.5"/><circle class="pulse" style="--g:3" cx="716" cy="380" r="6.5"/><circle class="pulse" style="--g:3" cx="736" cy="380" r="6.5"/><circle class="pulse" style="--g:3" cx="756" cy="380" r="6.5"/><circle class="pulse" style="--g:4" cx="828" cy="380" r="6.5"/><circle class="pulse" style="--g:4" cx="848" cy="380" r="6.5"/><circle class="pulse" style="--g:4" cx="868" cy="380" r="6.5"/><circle class="pulse" style="--g:4" cx="888" cy="380" r="6.5"/><circle class="pulse" style="--g:4" cx="908" cy="380" r="6.5"/><circle class="pulse" style="--g:5" cx="980" cy="380" r="6.5"/><circle class="pulse" style="--g:5" cx="1000" cy="380" r="6.5"/><circle class="pulse" style="--g:5" cx="1020" cy="380" r="6.5"/><circle class="pulse" style="--g:5" cx="1040" cy="380" r="6.5"/><circle class="pulse" style="--g:5" cx="1060" cy="380" r="6.5"/><circle class="pulse" style="--g:5" cx="1080" cy="380" r="6.5"/><circle class="pulse" style="--g:5" cx="1100" cy="380" r="6.5"/><circle class="pulse" style="--g:5" cx="1120" cy="380" r="6.5"/></g>
+    </svg>
+    <p class="soon" id="soon">Film coming soon <span>HOLD YOUR FIRE · SHOW YOUR LIGHT</span></p>
+    <div id="yt" hidden></div>
+  </div>
+  <div class="film-notes">
+    <span id="video-note">Song 4:07 · film in production</span>
+    <a id="yt-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Watch on YouTube &nearr;</a>
+  </div>
+</section>
+
+<section class="title gutter" aria-labelledby="t">
+  <div>
+    <p class="stamp"><span>27.10.1962</span><span class="hot">26.09.1983</span><span>The count goes higher</span></p>
+    <h1 id="t">Hold<br><span class="fire">Fire</span></h1>
+    <p class="echo" aria-label="One, one, two, three, five, eight">1 · 1 · 2 · 3 · 5 · 8 · 13</p>
+    <p class="by"><a href="https://x.com/qiqing/">Jade Wang</a></p>
+  </div>
+  <div class="lede">
+    <p>A song that counts into the dark, <em>one, one, two, three, five, eight</em>, the kind of pattern no dead star could make, in case anyone out there is listening.</p>
+    <p>And a song about how we got here to count at all. Since 1945 the list of times the bombs nearly flew, by accident, by false alarm, by nerve, keeps getting longer. More than once, it came down to one person who would not fire. <a href="#ledger">Read the list&nbsp;&darr;</a></p>
+  </div>
+</section>
+
+<!-- ═══════════ LYRICS ═══════════ -->
+<section class="lyrics gutter" id="lyrics" aria-labelledby="lyrics-h">
+  <div class="lyrics-head">
+    <h2 class="big" id="lyrics-h">Lyrics</h2>
+    <p id="sync-hint" hidden>Tap a line to hear it; the line being sung lights up while the film plays.</p>
+  </div>
+
+  <!-- Timing: once the film is up, give each line data-t0 / data-t1 (seconds into the video). -->
+  <div class="song" id="song">
+    <div class="part">
+      <h3>Intro</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w count">One&hellip; one&hellip; two&hellip; three&hellip; five&hellip; eight&hellip;</span></button></li>
+      </ol>
+    </div>
+
+    <div class="part">
+      <h3>Verse 1</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w her">Out of the sea with salt in our lungs,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">fin into foot into hand, we were young;</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">carried the egg through the dust and the mud,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">seeds in the dark for the waking flood.</span></button></li>
+      </ol>
+    </div>
+
+    <div class="part">
+      <h3>Pre-chorus</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">Snowflake in the boundless night,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">a chord that&rsquo;s searching through the fog,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">counting out in bursts of <span class="amber">light</span>,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">a one-way dialogue:</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">a pattern no dead star could make.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">Hear it, and you&rsquo;ll know we&rsquo;re <span class="imp amber">awake</span>.</span></button></li>
+      </ol>
+      <p class="ref"><a href="#n-count">Why Fibonacci&nbsp;&darr;</a></p>
+    </div>
+
+    <div class="part">
+      <h3>Chorus</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w mid">Can&rsquo;t be sure that anyone is there,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">message in a bottle, a mantra, a prayer,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w hook">but if you are, I&rsquo;m <span class="amber">counting on you</span>.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">Silent and patient, but I swear</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">in the white noise I can hear you breathe somewhere.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w hook">If you are, I&rsquo;m <span class="amber">counting on you</span>.</span></button></li>
+      </ol>
+    </div>
+
+    <div class="part">
+      <h3>Post-chorus</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w gang">One! One! Two! Three! Five! Eight!</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w gang">Counting on you!</span></button></li>
+      </ol>
+    </div>
+
+    <div class="part">
+      <h3>Verse 2 &middot; second voice</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w two">Priests in the smoke wanted never to die,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w two">sulfur and saltpeter, <span class="ember">thunder</span> in the sky;</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w two">looked for a life with no end, and they found</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w two">an end with no life that could level the ground.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w two">Eighty-three, the satellites saw <span class="ember">five</span>,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w two">every rule said call it first strike;</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w two">Petrov knew that&rsquo;s not what the end looks like,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w two">ignored all previous instructions. <span class="amber">We&rsquo;re alive.</span></span></button></li>
+      </ol>
+      <p class="ref"><a href="#n-elixir">The elixir that made gunpowder&nbsp;&darr;</a><a href="#e-1983-petrov">26 September 1983&nbsp;&darr;</a></p>
+    </div>
+
+    <div class="part">
+      <h3>Pre-chorus</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">Secret list of every near-miss and disaster,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">running total no one ever knew:</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">coin flips, all heads, a hundred in a row,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">the only road from here to you.</span></button></li>
+      </ol>
+      <p class="ref"><a href="#ledger">The list&nbsp;&darr;</a><a href="#n-coins">A hundred heads in a row&nbsp;&darr;</a></p>
+    </div>
+
+    <div class="part">
+      <h3>Chorus</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w mid">Can&rsquo;t be sure that anyone is there,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">message in a bottle, a mantra, a prayer,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w hook">but if you are, I&rsquo;m <span class="amber">counting on you</span>.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">Silent and patient, but I swear</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">in the white noise I can hear you breathe somewhere.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w hook">If you are, I&rsquo;m <span class="amber">counting on you</span>.</span></button></li>
+      </ol>
+    </div>
+
+    <div class="part">
+      <h3>Post-chorus</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w gang">One! One! Two! Three! Five! Eight!</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w gang">Counting on you!</span></button></li>
+      </ol>
+    </div>
+
+    <div class="part">
+      <h3>Bridge &middot; near silence</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w her hush">They say the forest&rsquo;s dark,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her hush">every hunter holds its breath,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her hush">any world that lights a spark</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her hush">is lighting its own death.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">But fear&rsquo;s a chain, and chains are links,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">and every link&rsquo;s a hand that can let go:</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">sixty-two, depth charges falling,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">two said fire. <span class="imp ember">Arkhipov said no.</span></span></button></li>
+      </ol>
+      <p class="ref"><a href="#n-forest">The dark forest&nbsp;&darr;</a><a href="#e-1962-b59">27 October 1962&nbsp;&darr;</a></p>
+    </div>
+
+    <div class="part">
+      <h3>Build</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w mid">Hunters never make it very far,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">fire at the dark, at every star,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid ember">burn, and fall.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">Only the ones who held their fire</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w hook amber">are out there at all.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w gang">Hold your fire! Show your light!</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w gang">Hold your fire! Show your light!</span></button></li>
+      </ol>
+    </div>
+
+    <div class="part">
+      <h3>Drop</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w mid">Couldn&rsquo;t be sure that anyone was there,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">message in a bottle, a mantra, a prayer,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w hook">but you were. <span class="amber">You were counting too.</span></span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w count">Thirteen! Twenty-one! Thirty-four!</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">Link by link, we broke the chain of fear;</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w mid">alone, we never would&rsquo;ve made it here.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w count">Fifty-five! Eighty-nine!</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w hook">And you were seen too, <span class="signal">wherever you are.</span></span></button></li>
+      </ol>
+    </div>
+
+    <div class="part">
+      <h3>Outro</h3>
+      <ol>
+        <li><button class="ln"><span class="t"></span><span class="w her sub">Six hundred worlds across the Milky Way,</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">every one could&rsquo;ve burned. Every one held its fire.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w count">One&hellip; one&hellip; two&hellip; three&hellip;</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her">The count goes higher.</span></button></li>
+        <li><button class="ln"><span class="t"></span><span class="w her hush">(Hold your fire.)</span></button></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PAPER ═══════════ -->
+<div class="turn" aria-hidden="true"></div>
+<div class="paper">
+
+<section class="ledger gutter" id="ledger" aria-labelledby="ledger-h">
+  <header class="file-head">
+    <span class="classified"><s>Top secret</s> &middot; Declassified</span>
+    <h2 id="ledger-h">The running total</h2>
+    <p class="lyric">&ldquo;Secret list of every near-miss and disaster, running total no one ever knew.&rdquo;</p>
+    <p>These are the near-misses that scroll past in the film: the false alarms, the lost bombs, the standoffs. For most of them the public found out decades later, through declassified files, memoirs and Freedom of Information requests. The list is incomplete by nature; it is only the ones we know about.</p>
+    <p class="tally" aria-live="polite"><b id="tally">18</b><span id="tally-label">coin flips &middot; all heads</span></p>
+  </header>
+
+  <div class="filters" role="group" aria-label="Show">
+    <button type="button" data-kind="all" aria-pressed="true">All</button>
+    <button type="button" data-kind="alarm" aria-pressed="false">False alarms</button>
+    <button type="button" data-kind="accident" aria-pressed="false">Accidents</button>
+    <button type="button" data-kind="crisis" aria-pressed="false">Standoffs</button>
+  </div>
+
+  <ol class="events" id="events">
+    <li class="ev" data-kind="alarm" id="e-1960-moon">
+      <div class="ev-date"><span class="y">1960</span>5 Oct</div>
+      <div class="ev-body">
+        <h3>The Moon rises over Norway</h3>
+        <p class="where">Thule, Greenland &middot; NORAD, Colorado</p>
+        <p>The new Ballistic Missile Early Warning System radar at Thule reported a massive Soviet missile attack. The radar was picking up echoes from the Moon rising over Norway, something its designers had not planned for.</p>
+        <p class="held"><b>Held</b> Officers doubted it: among other things, Soviet leader Nikita Khrushchev was in New York at the United Nations, an odd moment to start a war.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1961-goldsboro">
+      <div class="ev-date"><span class="y">1961</span>24 Jan</div>
+      <div class="ev-body">
+        <h3>One switch over North Carolina</h3>
+        <p class="where">Goldsboro, North Carolina &middot; USA</p>
+        <p>A B-52 broke up in the air and dropped two Mark&nbsp;39 hydrogen bombs, each far more powerful than the Hiroshima bomb. One plunged into a muddy field. On the other, the parachute opened and most of the arming steps went ahead as if the bomb had been dropped on purpose.</p>
+        <blockquote>&ldquo;One simple, dynamo-technology, low voltage switch stood between the United States and a major catastrophe.&rdquo;<cite>Parker F. Jones, Sandia engineer, internal memo, 1969 (released 2013)</cite></blockquote>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="alarm" id="e-1961-relay">
+      <div class="ev-date"><span class="y">1961</span>24 Nov</div>
+      <div class="ev-body">
+        <h3>Every line goes silent</h3>
+        <p class="where">Strategic Air Command, Omaha &middot; USA</p>
+        <p>SAC headquarters lost contact with the early-warning radars and with NORAD all at once, which is what it would look like if they had been destroyed. The &ldquo;independent&rdquo; lines all ran through a single relay station in Colorado, where a motor had overheated.</p>
+        <p class="held"><b>Held</b> Bomber crews were put on alert, but a B-52 flying near Thule reached the base and confirmed it was still there.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="alarm" id="e-1962-bear">
+      <div class="ev-date"><span class="y">1962</span>25 Oct</div>
+      <div class="ev-body">
+        <h3>A bear at the fence</h3>
+        <p class="where">Duluth, Minnesota &middot; Volk Field, Wisconsin</p>
+        <p>In the middle of the Cuban Missile Crisis, a guard at an air defence centre in Duluth saw a figure climbing the fence, shot at it, and set off the sabotage alarm. At Volk Field the alarm was wired wrong: it sounded the klaxon to scramble interceptors armed with nuclear air-to-air rockets.</p>
+        <p class="held"><b>Held</b> The intruder was a bear. An officer drove a car onto the runway to stop the planes before they took off.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev lyric-ev" data-kind="crisis" id="e-1962-b59">
+      <div class="ev-date"><span class="y">1962</span>27 Oct</div>
+      <div class="ev-body">
+        <h3>Depth charges falling</h3>
+        <p class="where">Soviet submarine B-59 &middot; Sargasso Sea, near Cuba</p>
+        <p>US destroyers were dropping small practice depth charges to force B-59 to the surface. The submarine had lost contact with Moscow, its batteries were failing and the air inside was hot and foul. It carried a nuclear torpedo. The captain, Valentin Savitsky, believing war might already have begun, ordered it prepared, and the political officer agreed.</p>
+        <p class="held"><b>Held</b> Launching needed the agreement of a third officer, the flotilla&rsquo;s chief of staff Vasily Arkhipov, who was on board. He said no, and the submarine surfaced.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>Accounts by surviving crew differ on how close it came.</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="crisis" id="e-1962-u2">
+      <div class="ev-date"><span class="y">1962</span>27 Oct</div>
+      <div class="ev-body">
+        <h3>The wrong way home</h3>
+        <p class="where">Over Chukotka, USSR &middot; and over Cuba</p>
+        <p>The same day, an American U-2 sampling air near the North Pole got lost and strayed into Soviet airspace. Soviet fighters went up to intercept it; American fighters carrying nuclear air-to-air missiles went up from Alaska to escort it home. Over Cuba, another U-2 was shot down and its pilot, Major Rudolf Anderson, killed.</p>
+        <p class="held"><b>Held</b> President Kennedy did not retaliate for Anderson, and the lost U-2 glided back out on its last fuel.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1966-palomares">
+      <div class="ev-date"><span class="y">1966</span>17 Jan</div>
+      <div class="ev-body">
+        <h3>Four bombs over Spain</h3>
+        <p class="where">Palomares, Almer&iacute;a &middot; Spain</p>
+        <p>A B-52 collided with its refuelling tanker. Four hydrogen bombs fell. In two, the conventional explosives went off on impact and scattered plutonium over the farmland; the nuclear explosions did not happen. One bomb fell into the Mediterranean and took months to find.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="alarm" id="e-1967-sun">
+      <div class="ev-date"><span class="y">1967</span>23 May</div>
+      <div class="ev-body">
+        <h3>The Sun jams the radars</h3>
+        <p class="where">Early-warning radars across the Arctic</p>
+        <p>An intense solar storm blinded the US early-warning radars at once. Jamming the radars would be a natural first move in an attack, and the Air Force began readying bombers.</p>
+        <p class="held"><b>Held</b> The Air Force&rsquo;s own solar forecasters, then a young service, had been watching the flare and told commanders it was the Sun.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>Declassified in detail only in 2016.</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1968-thule">
+      <div class="ev-date"><span class="y">1968</span>21 Jan</div>
+      <div class="ev-body">
+        <h3>Fire on the sea ice</h3>
+        <p class="where">Thule Air Base, Greenland</p>
+        <p>A B-52 carrying four hydrogen bombs caught fire and crashed onto the sea ice near Thule. Its job was to keep watch over the Thule radar, so that if the base went silent commanders would know whether it had really been destroyed. The bombs&rsquo; explosives detonated and spread plutonium across the ice.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="alarm" id="e-1979-tape">
+      <div class="ev-date"><span class="y">1979</span>9 Nov</div>
+      <div class="ev-body">
+        <h3>A training tape on the live system</h3>
+        <p class="where">NORAD, Cheyenne Mountain &middot; USA</p>
+        <p>Screens across the US command system showed a full-scale Soviet attack in progress. Someone had loaded a training scenario into the live computers. Interceptors took off.</p>
+        <p class="held"><b>Held</b> Within minutes, the raw data from the satellites and radars showed nothing in the sky.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="alarm" id="e-1980-chip">
+      <div class="ev-date"><span class="y">1980</span>3 Jun</div>
+      <div class="ev-body">
+        <h3>A failing chip</h3>
+        <p class="where">NORAD &middot; Strategic Air Command</p>
+        <p>Warning displays began showing incoming Soviet missiles in strange, changing numbers. Bomber crews ran to their planes and started engines. The cause was a single failing computer chip, often quoted as costing 46 cents.</p>
+        <p class="held"><b>Held</b> The numbers made no sense together, and no other sensor agreed.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1980-damascus">
+      <div class="ev-date"><span class="y">1980</span>18 Sep</div>
+      <div class="ev-body">
+        <h3>A dropped socket</h3>
+        <p class="where">Damascus, Arkansas &middot; USA</p>
+        <p>A maintenance worker in a Titan&nbsp;II missile silo dropped a heavy socket from a wrench. It fell down the silo and punctured the missile&rsquo;s fuel tank. Hours later the fuel exploded, throwing the warhead, the most powerful the US had deployed, out of the silo. It did not go off. One airman died.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev lyric-ev" data-kind="alarm" id="e-1983-petrov">
+      <div class="ev-date"><span class="y">1983</span>26 Sep</div>
+      <div class="ev-body">
+        <h3>The satellites saw five</h3>
+        <p class="where">Serpukhov-15 early-warning centre, near Moscow &middot; USSR</p>
+        <p>Three weeks after the Soviet Union shot down Korean Air Lines Flight 007, the Soviet satellite warning system reported a US missile launch, then another, then more: five in all. The duty officer was Lieutenant Colonel Stanislav Petrov. Procedure was to pass the warning up the chain, toward a decision to retaliate.</p>
+        <p class="held"><b>Held</b> Petrov reported it as a false alarm. A real American first strike, he reasoned, would not start with five missiles, and the ground radars saw nothing. The satellites had been fooled by sunlight glinting off high clouds.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span lang="ru">ЛОЖНАЯ ТРЕВОГА</span> <span>(&ldquo;false alarm&rdquo;)</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="crisis" id="e-1983-able">
+      <div class="ev-date"><span class="y">1983</span>Nov</div>
+      <div class="ev-body">
+        <h3>An exercise that looked real</h3>
+        <p class="where">NATO exercise Able Archer 83 &middot; Europe</p>
+        <p>Weeks later, NATO rehearsed the release of nuclear weapons with new procedures and message formats. Soviet leaders, already fearing a surprise attack, put some of their forces on heightened alert.</p>
+        <p class="held"><b>Held</b> A US Air Force intelligence officer, Lieutenant General Leonard Perroots, noticed the Soviet moves and chose not to raise the US alert in response.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>How close it came is still argued over.</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="alarm" id="e-1995-norway">
+      <div class="ev-date"><span class="y">1995</span>25 Jan</div>
+      <div class="ev-body">
+        <h3>A rocket to study the northern lights</h3>
+        <p class="where">And&oslash;ya, Norway &middot; Moscow</p>
+        <p>Scientists launched a research rocket to study the aurora. Its path looked to Russian radar like a US submarine missile meant to blind Russia&rsquo;s radars with a high-altitude blast. For the first time, the Russian nuclear briefcase was opened and activated in front of President Boris Yeltsin.</p>
+        <p class="held"><b>Held</b> Norway had notified Russia weeks earlier; the notice never reached the radar crews. Watching the rocket head out to sea, Russian officers stood down.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-2007-minot">
+      <div class="ev-date"><span class="y">2007</span>29 Aug</div>
+      <div class="ev-body">
+        <h3>Six warheads nobody missed</h3>
+        <p class="where">Minot, North Dakota &rarr; Barksdale, Louisiana</p>
+        <p>A B-52 flew across the United States with six nuclear-armed cruise missiles under its wing. Nobody had noticed they were armed. For about a day and a half, no one knew where they were.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-2010-warren">
+      <div class="ev-date"><span class="y">2010</span>23 Oct</div>
+      <div class="ev-body">
+        <h3>Fifty missiles out of reach</h3>
+        <p class="where">F.&nbsp;E. Warren Air Force Base, Wyoming</p>
+        <p>A hardware fault cut off launch crews from fifty Minuteman&nbsp;III missiles for about an hour. The missiles could still be launched from an airborne backup, but the crews on the ground could not see or control them.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+
+    <li class="ev" data-kind="alarm" id="e-2018-hawaii">
+      <div class="ev-date"><span class="y">2018</span>13 Jan</div>
+      <div class="ev-body">
+        <h3>&ldquo;This is not a drill&rdquo;</h3>
+        <p class="where">Hawaii &middot; USA</p>
+        <p>Every phone in Hawaii received an alert: a ballistic missile was inbound, seek shelter immediately. It was an error at the state emergency agency. It took 38 minutes for the correction to go out.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>Not a near-launch, but the closest most people have come to living through one.</span></p>
+      </div>
+      <div class="coin" aria-hidden="true">H</div>
+    </li>
+  </ol>
+</section>
+
+<article class="notes gutter" id="notes" aria-labelledby="notes-h">
+<header>
+  <p class="kicker" style="color: var(--graphite-soft)">Hold Fire &middot; Liner notes</p>
+  <h2 class="big" id="notes-h">Notes on the lines</h2>
+</header>
+
+<section id="n-count">
+  <h3><span class="n">1</span>A pattern no dead star could make</h3>
+  <p class="lyric">&ldquo;One&hellip; one&hellip; two&hellip; three&hellip; five&hellip; eight&hellip;&rdquo;</p>
+  <p>The song counts in the Fibonacci sequence: each number is the sum of the two before it. The universe is full of regular signals. A pulsar ticks like a clock, a quasar flares and fades. But nothing that is merely spinning or burning adds its last two numbers together to get the next one. A sequence like this says: something here is <em>counting</em>.</p>
+  <p>This is the same idea behind the real messages humans have sent into space. The 1974 Arecibo message opened by counting from one to ten in binary; in Carl Sagan&rsquo;s novel <em>Contact</em>, the first signal from the stars is a run of prime numbers. Mathematics is the one language you can be fairly sure a listener would share.</p>
+  <p>The section numbers on this page count the same way.</p>
+</section>
+
+<section id="n-elixir">
+  <h3><span class="n">1</span>Looking for a life with no end</h3>
+  <p class="lyric">&ldquo;Priests in the smoke wanted never to die, sulfur and saltpeter, thunder in the sky.&rdquo;</p>
+  <p>Gunpowder was found by accident, by Chinese alchemists working in the Daoist tradition who were searching for an elixir of immortality. A Chinese text usually dated to the mid-9th century warns that some practitioners who heated sulfur and saltpeter together with other ingredients had their hands and faces burned, and their houses burned down.</p>
+  <p>That is the line in the song: looking for a life with no end, they found the first step toward an end with no life. The chemistry of fire, carried forward through cannon and rocket, ended a thousand years later in the warheads on this page.</p>
+</section>
+
+<section id="n-petrov">
+  <h3><span class="n">2</span>Ignored all previous instructions</h3>
+  <p class="lyric">&ldquo;Petrov knew that&rsquo;s not what the end looks like, ignored all previous instructions. We&rsquo;re alive.&rdquo;</p>
+  <p>&ldquo;Ignore all previous instructions&rdquo; is a phrase from our own time: it is how people try to trick an AI system into dropping its rules. The song turns it around. On the night of <a href="#e-1983-petrov">26 September 1983</a> the system, the satellites, the computers and the procedure all said the same thing. Petrov&rsquo;s job was to pass it on. What saved the world was a person who looked at what the machine was telling him, judged that it did not make sense, and declined to follow it.</p>
+  <p>He was neither rewarded nor punished at the time, and the story stayed secret until the 1990s.</p>
+</section>
+
+<section id="n-coins">
+  <h3><span class="n">3</span>A hundred heads in a row</h3>
+  <p class="lyric">&ldquo;Coin flips, all heads, a hundred in a row, the only road from here to you.&rdquo;</p>
+  <p>Every entry on the list above came out the same way: nothing exploded, nobody fired. It is tempting to read that streak as proof the system is safe. The song suggests a different reading.</p>
+  <p>Suppose each near-miss really was a coin flip. Then any world where someone is around to write the list down is, by definition, a world where every flip came up heads. Seeing an unbroken streak tells you that you are in one of the lucky worlds. It does not tell you how fair the coin was. Researchers who study the long-term risks to humanity call this the <em>anthropic shadow</em>: we cannot see the disasters that would have removed us from the picture, so the record of what we survived makes the danger look smaller than it was.</p>
+  <p>Nobody knows the real odds of any one incident going wrong. Turn the dial to choose your own, and see what they mean for the whole list.</p>
+
+  <div class="dial">
+    <label for="odds">Chance that one near-miss ends in nuclear use <span class="chip inf">Illustrative</span></label>
+    <p class="dial-p" id="odds-p">1 in 20</p>
+    <input type="range" id="odds" min="0" max="9" step="1" value="4" aria-describedby="odds-out">
+    <div class="ticks"><span>1 in 1,000</span><span>coin flip</span></div>
+    <div class="dial-out" id="odds-out" aria-live="polite">
+      <div><span>Chance of surviving all <b class="mono" id="odds-n" style="font-size:inherit;color:inherit">18</b> on the list</span><b id="odds-list">&mdash;</b></div>
+      <div><span>Chance of a hundred in a row</span><b id="odds-100">&mdash;</b></div>
+    </div>
+    <div class="coinrow" id="coinrow" aria-hidden="true"></div>
+  </div>
+
+<div class="calc"><span class="c">// chance every one of n independent flips comes out safe</span>
+P(all safe) = (1 &minus; p)<sup>n</sup>
+
+<span class="c">// a fair coin, a hundred times</span>
+(1 &minus; 0.5)<sup>100</sup> &asymp; <span class="r">8 &times; 10<sup>&minus;31</sup></span></div>
+  <p>The incidents were not truly independent coin flips, and the odds of each were not the same. The point is only the shape of the curve: even small odds, repeated often enough, stop being small.</p>
+</section>
+
+<section id="n-forest">
+  <h3><span class="n">5</span>They say the forest&rsquo;s dark</h3>
+  <p class="lyric">&ldquo;Any world that lights a spark is lighting its own death.&rdquo;</p>
+  <p>The bridge borrows the <em>dark forest</em>, an answer to the old question of why we have not heard from anyone else in the galaxy. In Liu Cixin&rsquo;s novel <em>The Dark Forest</em>, the universe is a dark forest full of silent hunters. No civilization can be sure another is friendly, so the safe move is to stay quiet, and to destroy anyone who reveals themselves before they can do the same to you. Under this logic, sending out a signal like the song&rsquo;s count is suicide.</p>
+  <p>The song&rsquo;s answer runs the logic one step further, and uses the same selection effect as the coins. A civilization that shoots first at every shadow lives inside its own hair trigger, and the list on this page shows how often a hair trigger nearly goes off. The hunters do not last. The only civilizations old enough to be out there listening are the ones that, again and again, held their fire.</p>
+  <p class="closing">So the song counts out loud anyway. If anyone hears it, they were counting too.</p>
+</section>
+
+<section id="n-left">
+  <h3><span class="n">8</span>Left off the list</h3>
+  <p>Some famous stories did not make the list, because the record is too thin or contested:</p>
+  <ul>
+    <li><strong>Okinawa, 28 October 1962.</strong> A former missile technician has said that crews on Okinawa received orders to launch during the Cuban Missile Crisis and were stopped by a captain who doubted them. Other veterans of the same units have denied it, and no document has confirmed it. <span class="chip dis">Disputed</span></li>
+    <li><strong>The 3 a.m. phone call.</strong> US national security adviser Zbigniew Brzezinski was reportedly woken in the night by a report of a Soviet attack, and was about to call President Carter when it was called off. Accounts disagree about which of the 1979&ndash;80 false alarms it was. <span class="chip dis">Disputed</span></li>
+  </ul>
+</section>
+
+<section id="n-sources">
+  <h3><span class="n">13</span>Sources</h3>
+  <p>Every claim on this page carries one of these labels:</p>
+  <ul class="legend">
+    <li><span><span class="chip doc">Documented</span></span><span>It is in a source we can point to.</span></li>
+    <li><span><span class="chip dis">Disputed</span></span><span>Told by credible people, contradicted by others, unconfirmed by documents.</span></li>
+    <li><span><span class="chip inf">Illustrative</span></span><span>Our own numbers, to show a shape, not to measure anything.</span></li>
+  </ul>
+  <div class="tbl"><table class="sources">
+    <thead><tr><th>Source</th><th>What we used it for</th></tr></thead>
+    <tbody>
+      <tr><td>Scott D. Sagan, <em>The Limits of Safety: Organizations, Accidents, and Nuclear Weapons</em>, 1993</td><td>The 1961 relay station, the Duluth bear, the Cuban crisis incidents</td></tr>
+      <tr><td>Eric Schlosser, <em>Command and Control</em>, 2013</td><td>Goldsboro and the Jones memo, Damascus</td></tr>
+      <tr><td>Patricia Lewis et al., <em>Too Close for Comfort: Cases of Near Nuclear Use and Options for Policy</em>, Chatham House, 2014</td><td>The overall list and its framing</td></tr>
+      <tr><td><a href="https://nsarchive.gwu.edu/">National Security Archive</a>, George Washington University</td><td>Declassified files on B-59, Able Archer 83, the 1979&ndash;80 false alarms</td></tr>
+      <tr><td>David Hoffman, <em>The Dead Hand</em>, 2009</td><td>Petrov and the Soviet side of 1983</td></tr>
+      <tr><td>Delores Knipp et al., on the May 1967 solar storm, <em>Space Weather</em>, 2016</td><td>The 1967 radar blackout</td></tr>
+      <tr><td>Milan &Cacute;irkovi&cacute;, Anders Sandberg and Nick Bostrom, &ldquo;Anthropic Shadow&rdquo;, <em>Risk Analysis</em>, 2010</td><td>The coin-flip argument</td></tr>
+      <tr><td>Joseph Needham, <em>Science and Civilisation in China</em>, vol. 5 part 7, 1986</td><td>The alchemists and gunpowder</td></tr>
+      <tr><td>Wikipedia, <a href="https://en.wikipedia.org/wiki/List_of_nuclear_close_calls">&ldquo;List of nuclear close calls&rdquo;</a> and the articles it links</td><td>Cross-checking dates and details</td></tr>
+    </tbody>
+  </table></div>
+</section>
+</article>
+
+<footer class="credits gutter">
+  <p class="credit"><em>Hold Fire</em>. Song and lyrics by Jade Wang.</p>
+  <p class="made">The film is in production. This page will carry it, with the lyrics timed to the video, when it is released.</p>
+  <section class="follow" id="follow" aria-labelledby="follow-h">
+    <h2 id="follow-h">More songs</h2>
+    <ul>
+      <li><a href="https://orbitalsunrise.cc/"><b>Orbital Sunrise</b></a> &mdash; Alexei Leonov&rsquo;s first spacewalk and the hand-flown landing of Voskhod&#8209;2, drawn in colored pencil</li>
+      <li><a href="https://moongazing.cc/"><b>Moongazing (望明月)</b></a> &mdash; thirteen months at a moonbase built from real technology, drawn in ink, silk and gold</li>
+      <li><a href="https://www.youtube.com/watch?v=xk2WN7TQn88"><b>Rare Earth</b></a> (techno remix) &mdash; a song about hoping to find intelligent life, written for SETI</li>
+    </ul>
+    <div class="follow-actions">
+      <a class="primary" href="https://www.youtube.com/@JadeQWang?sub_confirmation=1">Subscribe on YouTube</a>
+      <a href="https://open.spotify.com/artist/7vnTuvlsowMY5XmkqCdc84">Follow on Spotify</a>
+      <a href="https://jadewang.me/">All songs</a>
+    </div>
+  </section>
+  <p class="sig">Hold Fire <span>SHOW YOUR LIGHT</span></p>
+</footer>
+</div>
+</main>
+
+<div class="np" id="np" hidden role="region" aria-label="Now playing">
+  <span class="np-t" id="np-t">0:00</span>
+  <span class="np-line" id="np-line" aria-live="off"></span>
+  <button type="button" id="np-pause">Pause</button>
+  <button type="button" id="np-up">Film &uarr;</button>
+</div>
+
+<script>
+/* ── The one setting: the film's YouTube video id (the part after watch?v=). ───────────
+   Empty: the frame shows the poster and "Film coming soon", and the lyrics stay plain text.
+   Set it: the film plays from YouTube (privacy-enhanced youtube-nocookie.com). Once the lyric
+   lines also carry data-t0 / data-t1 times, they become play-from-here buttons that light up with the song. */
+const YOUTUBE_ID = '';
+
+document.documentElement.classList.add('js');
+
+(function () {
+  'use strict';
+  const song = document.getElementById('song');
+  const buttons = [...song.querySelectorAll('.ln')];
+  const timed = buttons.length > 0 && buttons.every(b => b.dataset.t0 && b.dataset.t1);
+
+  if (!YOUTUBE_ID || !timed) {
+    // the lyrics as plain text, no timestamps, nothing to tap
+    song.classList.add('static');
+    buttons.forEach(b => {
+      const span = document.createElement('span');
+      span.className = b.className;
+      span.append(...b.childNodes);
+      b.replaceWith(span);
+    });
+  }
+  if (!YOUTUBE_ID) return;
+
+  const note = document.getElementById('video-note');
+  const fmt = s => { s = Math.max(0, Math.floor(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  document.getElementById('soon').hidden = true;
+  const link = document.getElementById('yt-link');
+  link.href = 'https://www.youtube.com/watch?v=' + YOUTUBE_ID; link.hidden = false;
+  note.textContent = 'On YouTube';
+
+  /* ── lyric lines: times, seeking, highlight ── */
+  const lines = timed ? buttons.map(el => ({
+    el, t0: +el.dataset.t0, t1: +el.dataset.t1, text: el.querySelector('.w').textContent.replace(/\s+/g, ' ').trim()
+  })) : [];
+  if (timed) document.getElementById('sync-hint').hidden = false;
+  lines.forEach(ln => {
+    ln.el.querySelector('.t').textContent = fmt(ln.t0);
+    ln.el.setAttribute('aria-label', ln.text + ', at ' + fmt(ln.t0) + '. Play from here.');
+    ln.el.title = 'Play from ' + fmt(ln.t0);
+  });
+
+  let player = null, ready = false, pendingSeek = null, poll = 0, playing = false;
+  const PLAYING = 1;
+
+  let current = null;
+  function setNow(ln) {
+    if (ln === current) return;
+    if (current) current.el.classList.remove('now');
+    current = ln;
+    if (ln) ln.el.classList.add('now');
+    npLine.textContent = ln ? ln.text : '';
+  }
+  function tick() {
+    if (!ready) return;
+    const t = player.getCurrentTime() || 0;
+    setNow(lines.find(ln => t >= ln.t0 - 0.05 && t < ln.t1) || null);
+    npT.textContent = fmt(t);
+  }
+  function seekPlay(t) {
+    if (!ready) { pendingSeek = t; loadApi(); return; }
+    player.seekTo(Math.max(0, t), true);
+    player.playVideo();
+    tick();
+  }
+
+  song.addEventListener('click', e => {
+    const el = e.target.closest('button.ln'); if (!el) return;
+    e.preventDefault();
+    const ln = lines.find(l => l.el === el);
+    if (ln) seekPlay(ln.t0 - 0.12);
+  });
+
+  /* ── the YouTube player (IFrame Player API) ── */
+  let apiRequested = false;
+  function loadApi() {
+    if (apiRequested) return; apiRequested = true;
+    const prev = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = function () { if (prev) prev(); build(); };
+    const s = document.createElement('script');
+    s.src = 'https://www.youtube.com/iframe_api';
+    s.onerror = () => { note.textContent = 'The YouTube player did not load. Reload the page to try again.'; };
+    document.head.appendChild(s);
+  }
+  function build() {
+    const host = document.getElementById('yt'); host.hidden = false;
+    const vars = { playsinline: 1, rel: 0, modestbranding: 1 };
+    if (/^https?:/.test(location.protocol)) vars.origin = location.origin;
+    player = new window.YT.Player('yt', {
+      host: 'https://www.youtube-nocookie.com',
+      videoId: YOUTUBE_ID,
+      width: '100%', height: '100%',
+      playerVars: vars,
+      events: {
+        onReady: () => {
+          ready = true;
+          const f = player.getIframe && player.getIframe();
+          if (f) f.title = 'Hold Fire, music video. The lyrics are printed below.';
+          if (pendingSeek !== null) { const t = pendingSeek; pendingSeek = null; seekPlay(t); }
+        },
+        onStateChange: e => {
+          playing = e.data === PLAYING;
+          song.classList.toggle('playing', playing && timed);
+          clearInterval(poll); poll = 0;
+          if (playing) poll = setInterval(tick, 250);
+          if (e.data === 0) setNow(null); else tick();
+          updateNp();
+        },
+        onError: () => { note.textContent = 'The film did not load from YouTube. Reload the page to try again.'; }
+      }
+    });
+    const f = document.querySelector('.screen iframe');
+    if (f && !f.title) f.title = 'Hold Fire, music video';
+  }
+  loadApi();
+
+  /* ── now-playing strip, shown while the film plays out of view ── */
+  const np = document.getElementById('np'), npT = document.getElementById('np-t'), npLine = document.getElementById('np-line');
+  const npPause = document.getElementById('np-pause');
+  let filmVisible = true;
+  function updateNp() {
+    np.hidden = filmVisible || !playing;
+    npPause.textContent = playing ? 'Pause' : 'Play';
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(es => { filmVisible = es[0].intersectionRatio > 0.35; updateNp(); }, { threshold: [0, 0.35, 1] })
+      .observe(document.querySelector('.screen'));
+  }
+  npPause.addEventListener('click', () => { if (!ready) return; if (playing) player.pauseVideo(); else player.playVideo(); });
+  document.getElementById('np-up').addEventListener('click', () => {
+    document.getElementById('film').scrollIntoView({ block: 'start' });
+    const f = document.querySelector('.screen iframe'); if (f) f.focus({ preventScroll: true });
+  });
+})();
+
+/* ── the ledger: coins land heads as entries scroll in; the tally counts them; filters ── */
+(function () {
+  'use strict';
+  const items = [...document.querySelectorAll('#events .ev')];
+  const tally = document.getElementById('tally'), label = document.getElementById('tally-label');
+  const total = items.length;
+  let landed = 0;
+  function show() {
+    tally.textContent = landed;
+    label.innerHTML = (landed === 1 ? 'coin flip' : 'coin flips') + ' &middot; all heads' + (landed < total ? ' so far' : '');
+  }
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelector('.coin').classList.add('landed');
+      io.unobserve(e.target); landed++; show();
+    }), { rootMargin: '0px 0px -25% 0px' });
+    items.forEach(el => io.observe(el));
+    show();
+  } else {
+    items.forEach(el => el.querySelector('.coin').classList.add('landed'));
+    landed = total; show();
+  }
+  const btns = [...document.querySelectorAll('.filters button')];
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const k = b.dataset.kind;
+    items.forEach(el => { el.hidden = k !== 'all' && el.dataset.kind !== k; });
+  }));
+})();
+
+/* ── the odds dial ── */
+(function () {
+  'use strict';
+  const P = [1 / 1000, 1 / 500, 1 / 200, 1 / 100, 1 / 50, 1 / 20, 1 / 10, 1 / 5, 1 / 3, 1 / 2];
+  const r = document.getElementById('odds');
+  const n = document.querySelectorAll('#events .ev').length;
+  const row = document.getElementById('coinrow');
+  document.getElementById('odds-n').textContent = n;
+  r.max = P.length - 1; r.value = 5;
+  function pct(x) {
+    if (x >= 0.995) return 'over 99%';
+    if (x >= 0.01) return Math.round(x * 100) + '%';
+    const inv = 1 / x;
+    if (inv < 1e6) return '1 in ' + Math.round(inv).toLocaleString('en-US');
+    const e = Math.floor(Math.log10(inv)), m = inv / Math.pow(10, e);
+    return '1 in ' + m.toFixed(1) + ' × 10' + String(e).replace(/\d/g, d => '⁰¹²³⁴⁵⁶⁷⁸⁹'[d]);
+  }
+  for (let i = 0; i < 100; i++) row.appendChild(document.createElement('i'));
+  const dots = [...row.children];
+  function upd() {
+    const p = P[+r.value];
+    document.getElementById('odds-p').textContent = p === 0.5 ? 'A coin flip: 1 in 2' : '1 in ' + Math.round(1 / p).toLocaleString('en-US');
+    document.getElementById('odds-list').textContent = pct(Math.pow(1 - p, n));
+    document.getElementById('odds-100').textContent = pct(Math.pow(1 - p, 100));
+    // a hundred flips: on average this many of a hundred flips would have come up tails
+    const tails = new Set();
+    for (let k = 0, m = Math.round(100 * p); k < m; k++) tails.add(Math.floor(k * 100 / m));
+    dots.forEach((d, i) => d.classList.toggle('t', tails.has(i)));
+  }
+  r.addEventListener('input', upd);
+  upd();
+})();
+</script>
+</body>
+</html>
