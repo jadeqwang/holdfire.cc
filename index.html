@@ -588,13 +588,13 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
     <h2 id="ledger-h">Every coin flip</h2>
     <p class="sub">A deep dive into every near-miss</p>
     <p class="lyric">&ldquo;Secret list of every near-miss and disaster, running total no one ever knew.&rdquo;</p>
-    <p>These are the near-misses that scroll past in the film: the false alarms, the lost bombs, the standoffs. For most of them the public found out decades later, through declassified files, memoirs and Freedom of Information requests. The list is incomplete by nature; it is only the ones we know about.</p>
+    <p>These are the near-misses that scroll past in the film: the false alarms, the lost bombs, the standoffs, and a few other dangers of the same kind, from a bioweapons leak to an AI&rsquo;s false alarm. For most of them the public found out decades later, through declassified files, memoirs and Freedom of Information requests. The list is incomplete by nature; it is only the ones we know about.</p>
     <figure class="year" id="year" hidden>
-      <figcaption>Across the calendar: every entry by the day of the year it happened. <span class="key"><i class="k-ev"></i>on the list <i class="k-dis"></i>disputed (?) <i class="k-now"></i>today</span></figcaption>
+      <figcaption>Across the calendar: every dated entry by the day of the year it happened. <span class="key"><i class="k-ev"></i>on the list <i class="k-dis"></i>disputed (?) <i class="k-now"></i>today</span></figcaption>
       <div class="year-wrap"><svg id="year-svg" viewBox="0 0 1000 150" role="img" aria-labelledby="year-desc"><desc id="year-desc">A timeline of the calendar year from January to December with one mark per near-miss. Two clusters stand out: 13 to 25 January, and 23 to 28 October, the week of the Cuban Missile Crisis.</desc></svg></div>
       <p class="onthisday" id="onthisday" aria-live="polite"></p>
     </figure>
-    <p class="tally" aria-live="polite"><b id="tally">18</b><span id="tally-label">coin flips &middot; all heads</span></p>
+    <p class="tally" aria-live="polite"><b id="tally">29</b><span id="tally-label">coin flips &middot; all heads</span></p>
   </header>
 
   <div class="filters" role="group" aria-label="Show">
@@ -606,6 +606,57 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
   </div>
 
   <ol class="events" id="events">
+    <li class="ev" data-kind="accident" id="e-1950-bc" data-md="02-13">
+      <div class="ev-date"><span class="y">1950</span>13 Feb</div>
+      <div class="ev-body">
+        <h3>The first bomb to get away</h3>
+        <p class="where">Off British Columbia &middot; Canada</p>
+        <p>A US B-36 bomber flying a simulated nuclear strike mission from Alaska to Texas lost three of its six engines to icing. The crew dropped its Mark&nbsp;4 atomic bomb over the Pacific, where the bomb&rsquo;s conventional explosives went off in mid-air, then bailed out; twelve of the seventeen survived. It was the first time the United States lost a nuclear weapon. Canada was not told the plane had been carrying one.</p>
+        <p class="held"><b>Held</b> The bomb carried a lead-filled dummy instead of its plutonium core, so only the high explosive went off.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1950_British_Columbia_B-36_crash" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.atomicarchive.com/almanac/broken-arrows/" target="_blank" rel="noopener">Atomic Archive, Broken Arrows</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1950</div>
+    </li>
+
+    <li class="ev" data-kind="other" id="e-1957-kyshtym" data-md="09-29">
+      <div class="ev-date"><span class="y">1957</span>29 Sep</div>
+      <div class="ev-body">
+        <h3>The waste tank that blew</h3>
+        <p class="where">Mayak plutonium plant, near Kyshtym &middot; USSR</p>
+        <p>At the secret Soviet plant that made plutonium for bombs, the cooling failed on an underground tank of high-level radioactive waste. The dried waste exploded. Fallout contaminated more than 20,000&nbsp;km&sup2; and about 10,000 people were evacuated, some only after nearly two years. The Soviet Union kept it secret for about two decades.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>Not a near-miss: the damage was real. Still one of the worst nuclear accidents ever.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Kyshtym_disaster" target="_blank" rel="noopener">Wikipedia</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1957</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1958-tybee" data-md="02-05">
+      <div class="ev-date"><span class="y">1958</span>5 Feb</div>
+      <div class="ev-body">
+        <h3>The bomb still in the sound</h3>
+        <p class="where">Off Tybee Island, Georgia &middot; USA</p>
+        <p>On a night practice mission, a fighter collided with a B-47 carrying a Mark&nbsp;15 hydrogen bomb. So as not to risk landing with it, the crew dropped the bomb into Wassaw Sound off Tybee Island. A search of several weeks never found it. It is still there.</p>
+        <p class="held"><b>Held</b> The Air Force says the bomb&rsquo;s nuclear capsule was not aboard. In 1966 congressional testimony, though, an Assistant Secretary of Defense called it a &ldquo;complete weapon&rdquo;.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>Whether the capsule was aboard is disputed.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1958_Tybee_Island_mid-air_collision" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.atomicarchive.com/almanac/broken-arrows/" target="_blank" rel="noopener">Atomic Archive, Broken Arrows</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1958</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1958-marsbluff" data-md="03-11">
+      <div class="ev-date"><span class="y">1958</span>11 Mar</div>
+      <div class="ev-body">
+        <h3>A bomb behind the Greggs&rsquo; house</h3>
+        <p class="where">Mars Bluff, South Carolina &middot; USA</p>
+        <p>Checking a faulty bomb lock, a B-47&rsquo;s navigator accidentally released a Mark&nbsp;6 atomic bomb. It broke through the bomb-bay doors, fell about 15,000 feet and landed in the woods behind Walter Gregg&rsquo;s house. Its conventional explosives left a crater about 70 feet wide. Six people were hurt, and nearby houses and a church were damaged.</p>
+        <p class="held"><b>Held</b> The bomb&rsquo;s nuclear core was stored elsewhere on the plane, so no nuclear explosion was possible.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1958_Mars_Bluff_B-47_nuclear_weapon_loss_incident" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.atomicarchive.com/almanac/broken-arrows/" target="_blank" rel="noopener">Atomic Archive, Broken Arrows</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1958</div>
+    </li>
+
     <li class="ev" data-kind="alarm" id="e-1960-moon" data-md="10-05">
       <div class="ev-date"><span class="y">1960</span>5 Oct</div>
       <div class="ev-body">
@@ -658,6 +709,19 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">1962</div>
     </li>
 
+    <li class="ev" data-kind="crisis" id="e-1962-vandenberg" data-md="10-26">
+      <div class="ev-date"><span class="y">1962</span>26 Oct</div>
+      <div class="ev-body">
+        <h3>A test shot mid-crisis</h3>
+        <p class="where">Vandenberg Air Force Base, California &middot; USA</p>
+        <p>At the height of the Cuban Missile Crisis, with Strategic Air Command at DEFCON&nbsp;2, an Atlas missile that had been prepared for a long-scheduled test was launched over the Pacific. According to the historian Scott Sagan, nobody in Washington was asked or told. Nuclear warheads were being loaded onto missiles at nearby launch sites at the same time.</p>
+        <p class="held"><b>Held</b> The test missile was unarmed, and the Soviet Union had no early-warning satellites to see the launch.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://www.armscontrolwonk.com/archive/402833/organizations-accidents-and-nuclear-weapons/" target="_blank" rel="noopener">Arms Control Wonk, quoting Sagan</a><a href="https://en.wikipedia.org/wiki/DEFCON" target="_blank" rel="noopener">DEFCON (Wikipedia)</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1962</div>
+    </li>
+
     <li class="ev lyric-ev" data-kind="crisis" id="e-1962-b59" data-md="10-27">
       <div class="ev-date"><span class="y">1962</span>27 Oct</div>
       <div class="ev-body">
@@ -682,6 +746,18 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Nuclear_close_calls#U.S._scramble_of_interceptors" target="_blank" rel="noopener">Wikipedia</a><a href="https://en.wikipedia.org/wiki/Rudolf_Anderson" target="_blank" rel="noopener">Rudolf Anderson</a></p>
       </div>
       <div class="coin" aria-hidden="true">1962</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1965-ticonderoga" data-md="12-05">
+      <div class="ev-date"><span class="y">1965</span>5 Dec</div>
+      <div class="ev-body">
+        <h3>Rolled off the deck</h3>
+        <p class="where">Philippine Sea &middot; Pacific</p>
+        <p>During a training exercise, an A-4 Skyhawk loaded with a one-megaton hydrogen bomb was being pushed onto the aircraft carrier USS Ticonderoga&rsquo;s elevator when it rolled over the side. The pilot, the plane and the bomb sank in about 16,000 feet of water and were never recovered. Only in 1989 did the Pentagon reveal how close to Japanese islands it had happened.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>Accounts differ on how far from land it was.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/1965_Philippine_Sea_A-4_incident" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.atomicarchive.com/almanac/broken-arrows/" target="_blank" rel="noopener">Atomic Archive, Broken Arrows</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1965</div>
     </li>
 
     <li class="ev" data-kind="accident" id="e-1966-palomares" data-md="01-17">
@@ -721,6 +797,55 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       <div class="coin" aria-hidden="true">1968</div>
     </li>
 
+    <li class="ev" data-kind="accident" id="e-1968-k129" data-md="03-08">
+      <div class="ev-date"><span class="y">1968</span>8 Mar</div>
+      <div class="ev-body">
+        <h3>A missile sub goes silent</h3>
+        <p class="where">North Pacific, northwest of Hawaii</p>
+        <p>The Soviet ballistic-missile submarine K-129 sank with all 98 of its crew and three nuclear missiles aboard. The Soviet search failed; the United States found the wreck from its own underwater listening data, and in 1974 a secret CIA operation raised part of it.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>The cause, and the exact date, are still disputed.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Soviet_submarine_K-129_(1960)" target="_blank" rel="noopener">Wikipedia</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1968</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1968-scorpion" data-md="05-22">
+      <div class="ev-date"><span class="y">1968</span>22 May</div>
+      <div class="ev-body">
+        <h3>Lost with two nuclear torpedoes</h3>
+        <p class="where">Southwest of the Azores &middot; Atlantic</p>
+        <p>The US nuclear submarine Scorpion sank with all 99 of its crew on the way home from the Mediterranean. The wreck lies about 3,000&nbsp;m down with its reactor and two nuclear torpedoes. The Navy still checks the site for radiation.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>The cause is officially unknown.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/USS_Scorpion_(SSN-589)" target="_blank" rel="noopener">Wikipedia</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1968</div>
+    </li>
+
+    <li class="ev" data-kind="crisis" id="e-1973-defcon3" data-md="10-24" data-md-end="10-25">
+      <div class="ev-date"><span class="y">1973</span>24&ndash;25 Oct</div>
+      <div class="ev-body">
+        <h3>Nuclear alert over a ceasefire</h3>
+        <p class="where">Washington &middot; Moscow &middot; the Middle East</p>
+        <p>Near the end of the Yom Kippur War, Israeli forces surrounded Egypt&rsquo;s Third Army in breach of a ceasefire. Soviet leader Leonid Brezhnev wrote to President Nixon threatening to act &ldquo;unilaterally&rdquo;, and Soviet airborne divisions went on alert. That night Henry Kissinger and other senior officials, without waking Nixon, raised US forces worldwide to DEFCON&nbsp;3.</p>
+        <p class="held"><b>Held</b> They also sent a conciliatory reply; the US pressed Israel to keep the ceasefire, and Soviet troops never deployed.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Yom_Kippur_War" target="_blank" rel="noopener">Wikipedia</a><a href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB98/press.htm" target="_blank" rel="noopener">National Security Archive</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1973</div>
+    </li>
+
+    <li class="ev" data-kind="other" id="e-1979-sverdlovsk" data-md="04-02">
+      <div class="ev-date"><span class="y">1979</span>2 Apr</div>
+      <div class="ev-body">
+        <h3>Spores over the city</h3>
+        <p class="where">Sverdlovsk &middot; USSR</p>
+        <p>Anthrax spores escaped from a Soviet military biological-weapons plant and blew downwind over the city, killing at least 68 people. Russian sources later blamed a faulty exhaust filter. Soviet authorities blamed tainted meat, and the Russian government still does.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>Not nuclear: a weapons accident of another kind, kept secret for years.</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/Sverdlovsk_anthrax_leak" target="_blank" rel="noopener">Wikipedia</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1979</div>
+    </li>
+
     <li class="ev" data-kind="alarm" id="e-1979-tape" data-md="11-09">
       <div class="ev-date"><span class="y">1979</span>9 Nov</div>
       <div class="ev-body">
@@ -743,6 +868,19 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
         <p class="held"><b>Held</b> With about a minute to go, a third call came: no other early-warning system saw any missiles. The cause was a single failing computer chip, often quoted as costing 46 cents.</p>
         <p class="meta"><span class="chip doc">Documented</span> <span>Some retellings put Brzezinski&rsquo;s call in November 1979.</span></p>
         <p class="more"><span>Read more</span><a href="https://nsarchive.gwu.edu/briefing-book/nuclear-vault/2020-03-16/false-warnings-soviet-missile-attacks-during-1979-80-led-alert-actions-us-strategic-forces" target="_blank" rel="noopener">National Security Archive</a><a href="https://www.chathamhouse.org/2014/04/too-close-comfort-cases-near-nuclear-use-and-options-policy" target="_blank" rel="noopener">Chatham House report</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">1980</div>
+    </li>
+
+    <li class="ev" data-kind="accident" id="e-1980-grandforks" data-md="09-15">
+      <div class="ev-date"><span class="y">1980</span>15 Sep</div>
+      <div class="ev-body">
+        <h3>The wind blew the right way</h3>
+        <p class="where">Grand Forks Air Force Base, North Dakota &middot; USA</p>
+        <p>A fuel fire in the wing of a B-52 on nuclear alert burned &ldquo;like a blowtorch&rdquo; for nearly three hours. The bomb bay held nuclear weapons. In closed Senate testimony in 1988, the director of Lawrence Livermore laboratory said that if the fire had reached them, their explosives could have spread plutonium over about 60 square miles: not a nuclear blast, but &ldquo;probably worse than Chernobyl&rdquo;.</p>
+        <p class="held"><b>Held</b> A 26&nbsp;mph wind blew along the fuselage, keeping the fire away from the bomb bay.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>The Air Force said at the time there was no chance of a nuclear accident.</span></p>
+        <p class="more"><span>Read more</span><a href="https://archive.seattletimes.com/archive/19910813/1299674/nearly-a-nuclear-disaster----wind-shifted-fire-on-b-52-away-from-bomb-experts-say" target="_blank" rel="noopener">Seattle Times, 1991</a><a href="https://en.wikipedia.org/wiki/Grand_Forks_Air_Force_Base" target="_blank" rel="noopener">Grand Forks AFB (Wikipedia)</a></p>
       </div>
       <div class="coin" aria-hidden="true">1980</div>
     </li>
@@ -833,6 +971,71 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
       </div>
       <div class="coin" aria-hidden="true">2018</div>
     </li>
+
+    <li class="ev" data-kind="accident" id="e-2022-brahmos" data-md="03-09">
+      <div class="ev-date"><span class="y">2022</span>9 Mar</div>
+      <div class="ev-body">
+        <h3>A missile fired by mistake</h3>
+        <p class="where">Mian Channu, Punjab &middot; Pakistan</p>
+        <p>An Indian BrahMos cruise missile was launched by accident. It flew about 124&nbsp;km into Pakistan in under four minutes and crashed near Mian Channu, damaging property but hurting no one. India acknowledged it two days later; an inquiry blamed three officers, who were dismissed.</p>
+        <p class="held"><b>Held</b> The missile was unarmed, and Pakistan, a nuclear-armed rival, did not retaliate.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/2022_India%E2%80%93Pakistan_missile_incident" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.armscontrol.org/act/2022-04/news/india-accidentally-fires-missile-pakistan" target="_blank" rel="noopener">Arms Control Today</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">2022</div>
+    </li>
+
+    <li class="ev" data-kind="crisis" id="e-2025-indiapak" data-md="05-07" data-md-end="05-10">
+      <div class="ev-date"><span class="y">2025</span>7&ndash;10 May</div>
+      <div class="ev-body">
+        <h3>Four days of strikes</h3>
+        <p class="where">India &middot; Pakistan</p>
+        <p>After a terrorist attack at Pahalgam in Kashmir killed 26 civilians, India struck targets in Pakistan, and the two nuclear-armed neighbours traded missile, drone and artillery strikes for four days, including on each other&rsquo;s air bases. An Indian strike on Nur Khan air base, near the headquarters of the body that oversees Pakistan&rsquo;s nuclear arsenal, alarmed US officials.</p>
+        <p class="held"><b>Held</b> A ceasefire was agreed over the two militaries&rsquo; hotline on 10 May after US and other mediation.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/2025_India%E2%80%93Pakistan_conflict" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.armscontrol.org/act/2025-06/news/ceasefire-halts-india-pakistan-missile-exchange" target="_blank" rel="noopener">Arms Control Today</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">2025</div>
+    </li>
+
+    <li class="ev" data-kind="other" id="e-2025-poland" data-md="09-10">
+      <div class="ev-date"><span class="y">2025</span>9&ndash;10 Sep</div>
+      <div class="ev-body">
+        <h3>NATO fires on Russian drones</h3>
+        <p class="where">Eastern Poland &middot; NATO</p>
+        <p>Overnight, a wave of drones crossed into Poland from Belarus; counts range from about 19 to more than 30. Polish and Dutch fighter jets shot down at least three, the first time a NATO country had fired on Russian military aircraft since the invasion of Ukraine. Debris damaged a house, but no one was hurt.</p>
+        <p class="held"><b>Held</b> Poland called for NATO consultations under Article&nbsp;4 rather than anything more, and Russia denied targeting Poland.</p>
+        <p class="meta"><span class="chip doc">Documented</span></p>
+        <p class="more"><span>Read more</span><a href="https://en.wikipedia.org/wiki/2025_Russian_drone_incursion_into_Poland" target="_blank" rel="noopener">Wikipedia</a><a href="https://www.armscontrol.org/act/2025-10/news/nato-downs-russian-drones-over-poland" target="_blank" rel="noopener">Arms Control Today</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">2025</div>
+    </li>
+
+    <li class="ev" data-kind="other" id="e-2026-ai">
+      <div class="ev-date"><span class="y">2026</span>Spring</div>
+      <div class="ev-body">
+        <h3>A chatbot&rsquo;s false alarm</h3>
+        <p class="where">The Middle East</p>
+        <p>According to CNN&rsquo;s anonymous sources, an intelligence report built with an AI chatbot wrongly said a Chinese ship was carrying parts for a nuclear-weapons programme. The US planned to intercept it; military planes were in the air, and by two accounts armed personnel were preparing to board.</p>
+        <p class="held"><b>Held</b> Officials checked the report&rsquo;s sources just before the operation and found the error.</p>
+        <p class="meta"><span class="chip rep">Reported</span> <span>Reported by CNN on 18 September 2026; the Pentagon did not respond.</span></p>
+        <p class="more"><span>Read more</span><a href="https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship" target="_blank" rel="noopener">CNN, 18 Sep 2026</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">2026</div>
+    </li>
+
+    <li class="ev" data-kind="other" id="e-2026-arabiansea" data-md="09-15">
+      <div class="ev-date"><span class="y">2026</span>15 Sep</div>
+      <div class="ev-body">
+        <h3>Warships touch at sea</h3>
+        <p class="where">North Arabian Sea</p>
+        <p>An Indian and a Pakistani naval vessel collided. Each side blames the other: India says a Pakistani patrol ship came at its warship at high speed in international waters; Pakistan says the Indian ship made &ldquo;aggressive manoeuvres&rdquo; inside its waters during an exercise. Both countries summoned the other&rsquo;s diplomats.</p>
+        <p class="held"><b>Held</b> Both sides answered with diplomatic protests only.</p>
+        <p class="meta"><span class="chip doc">Documented</span> <span>The cause and exact location are disputed.</span></p>
+        <p class="more"><span>Read more</span><a href="https://www.aljazeera.com/news/2026/9/17/india-pakistan-navy-ship-collision-sparks-alarm-over-unintended-escalation" target="_blank" rel="noopener">Al Jazeera</a><a href="https://maritime-executive.com/article/india-accuses-pakistani-warship-of-unprofessional-conduct-causing-collision" target="_blank" rel="noopener">Maritime Executive</a></p>
+      </div>
+      <div class="coin" aria-hidden="true">2026</div>
+    </li>
   </ol>
 </section>
 
@@ -867,7 +1070,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
 <section id="n-coins">
   <h3><span class="n">3</span>A hundred heads in a row</h3>
   <p class="lyric">&ldquo;Coin flips, all heads, a hundred in a row, the only road from here to you.&rdquo;</p>
-  <p>Every entry on the list above came out the same way: nothing exploded, nobody fired. It is tempting to read that streak as proof the system is safe. The song suggests a different reading.</p>
+  <p>Every near-miss on the list above came out the same way: no nuclear weapon went off, and nobody launched. It is tempting to read that streak as proof the system is safe. The song suggests a different reading.</p>
   <p>Suppose each near-miss really was a coin flip. Then any world where someone is around to write the list down is, by definition, a world where every flip came up heads. Seeing an unbroken streak tells you that you are in one of the lucky worlds. It does not tell you how fair the coin was. Researchers who study the long-term risks to humanity call this the <em>anthropic shadow</em>: we cannot see the disasters that would have removed us from the picture, so the record of what we survived makes the danger look smaller than it was.</p>
   <p>Nobody knows the real odds of any one incident going wrong. Turn the dial to choose your own, and see what they mean for the whole list.</p>
 
@@ -877,7 +1080,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
     <input type="range" id="odds" min="0" max="9" step="1" value="4" aria-describedby="odds-out">
     <div class="ticks"><span>1 in 1,000</span><span>coin flip</span></div>
     <div class="dial-out" id="odds-out" aria-live="polite">
-      <div><span>Chance of surviving all <b class="mono" id="odds-n" style="font-size:inherit;color:inherit">18</b> on the list</span><b id="odds-list">&mdash;</b></div>
+      <div><span>Chance of surviving all <b class="mono" id="odds-n" style="font-size:inherit;color:inherit">29</b> on the list</span><b id="odds-list">&mdash;</b></div>
       <div><span>Chance of a hundred in a row</span><b id="odds-100">&mdash;</b></div>
     </div>
     <div class="coinrow" id="coinrow" aria-hidden="true"></div>
@@ -1114,7 +1317,9 @@ document.documentElement.classList.add('js');
   'use strict';
   const items = [...document.querySelectorAll('#events .ev')];
   const tally = document.getElementById('tally'), label = document.getElementById('tally-label');
-  const total = items.length;
+  // the tally counts the near-misses; the "other dangers" get a coin but are not flips that came up heads
+  const flip = el => el.dataset.kind !== 'other';
+  const total = items.filter(flip).length;
   let landed = 0;
   function show() {
     tally.textContent = landed;
@@ -1124,7 +1329,7 @@ document.documentElement.classList.add('js');
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (!e.isIntersecting) return;
       e.target.querySelector('.coin').classList.add('landed');
-      io.unobserve(e.target); landed++; show();
+      io.unobserve(e.target); if (flip(e.target)) landed++; show();
     }), { rootMargin: '0px 0px -25% 0px' });
     items.forEach(el => io.observe(el));
     show();
@@ -1146,7 +1351,7 @@ document.documentElement.classList.add('js');
   const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const NS = 'http://www.w3.org/2000/svg';
   const doy = md => { const [m, d] = md.split('-').map(Number); return Math.round((Date.UTC(2001, m - 1, d) - Date.UTC(2001, 0, 1)) / 864e5); };
-  const evs = [...document.querySelectorAll('#events .ev')].map(el => ({
+  const evs = [...document.querySelectorAll('#events .ev')].filter(el => el.dataset.md).map(el => ({
     d: doy(el.dataset.md), d1: el.dataset.mdEnd ? doy(el.dataset.mdEnd) : null, md: el.dataset.md,
     year: el.querySelector('.ev-date .y').textContent, title: el.querySelector('h3').textContent, href: '#' + el.id, dis: false
   }));
@@ -1227,7 +1432,7 @@ document.documentElement.classList.add('js');
   'use strict';
   const P = [1 / 1000, 1 / 500, 1 / 200, 1 / 100, 1 / 50, 1 / 20, 1 / 10, 1 / 5, 1 / 3, 1 / 2];
   const r = document.getElementById('odds');
-  const n = document.querySelectorAll('#events .ev').length;
+  const n = document.querySelectorAll('#events .ev:not([data-kind="other"])').length;
   const row = document.getElementById('coinrow');
   document.getElementById('odds-n').textContent = n;
   r.max = P.length - 1; r.value = 5;
