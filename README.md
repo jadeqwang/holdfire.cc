@@ -24,6 +24,8 @@ No video or audio files are kept in this repo.
 
 Each entry in `#events` is one `<li class="ev">` with a `data-kind` of `alarm`, `accident` or `crisis`, which drives the filter buttons. Entries named in the lyrics also carry the `lyric-ev` class. Each also carries `data-md` (its month and day, for the calendar strip and the this-week line) and a `Read more` line of links. The tally, the calendar and the odds dial read the entries, so adding or removing one needs no other change.
 
+The collapsed `#unconfirmed` section under the list holds the twelve dates the film's coin grid stamps with a "?": the same entry format, a `coin unsure landed` coin, and not counted in the tally or the odds. Only Okinawa is on the calendar.
+
 ## Deploy
 
 It is a plain static site: `index.html`, `favicon.*` and `img/`, no build step.
