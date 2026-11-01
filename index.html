@@ -240,7 +240,21 @@ h2.big { font: 900 clamp(2.8rem, 10vw, 5.8rem)/.88 var(--f-display); text-transf
 .coin.unsure { filter: saturate(.45) brightness(.9); align-content: center; padding-top: .7rem; line-height: .95; }
 .coin.unsure small { display: block; text-align: center; font-size: .6rem; }
 .unconfirmed { margin-top: 2rem; border-top: 2px solid var(--graphite); }
-.unconfirmed summary { cursor: pointer; padding-block: 1.1rem; font: 900 clamp(1.4rem, 4.4vw, 2rem)/1.05 var(--f-display); text-transform: uppercase; letter-spacing: .01em; color: var(--stamp); text-wrap: balance; }
+.unconfirmed summary { cursor: pointer; list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .35rem 1.5rem; align-items: center; padding-block: 1.1rem; }
+.unconfirmed summary::-webkit-details-marker { display: none; }
+.unconfirmed .un-title { grid-column: 1; font: 900 clamp(1.4rem, 4.4vw, 2rem)/1.05 var(--f-display); text-transform: uppercase; letter-spacing: .01em; color: var(--stamp); text-wrap: balance; }
+.unconfirmed .un-teaser { grid-column: 1; font: 400 .78rem/1.5 var(--f-mono); color: var(--graphite-soft); }
+.unconfirmed .un-cta { grid-column: 2; grid-row: 1 / span 2; white-space: nowrap; padding: .6rem .9rem; border: 1.5px solid var(--stamp); border-radius: 2px; font: 600 .74rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--stamp); transition: background .15s, color .15s; }
+.unconfirmed .un-cta::after { content: "\25BE"; margin-left: .5rem; }
+.unconfirmed[open] .un-cta::after { content: "\25B4"; }
+.unconfirmed summary:hover .un-cta { background: var(--stamp); color: #fff; }
+.unconfirmed summary:focus-visible { outline: 2px solid var(--stamp); outline-offset: 2px; }
+.unconfirmed .un-hide, .unconfirmed[open] .un-show { display: none; }
+.unconfirmed[open] .un-hide { display: inline; }
+@media (max-width: 40rem) {
+  .unconfirmed summary { grid-template-columns: minmax(0, 1fr); }
+  .unconfirmed .un-cta { grid-column: 1; grid-row: auto; justify-self: start; margin-top: .4rem; }
+}
 .unconfirmed .un-lead { margin: 0 0 1rem; max-width: 62ch; }
 .unconfirmed .un-h { font: 600 .78rem/1.4 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--stamp); margin: 1.6rem 0 0; padding-bottom: .4rem; border-bottom: 2px solid var(--graphite); }
 @media (max-width: 40rem) {
@@ -1046,7 +1060,11 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
   </ol>
 
   <details class="unconfirmed" id="unconfirmed">
-    <summary>Unconfirmed: the count could be higher</summary>
+    <summary>
+      <span class="un-title">Unconfirmed: the count could be higher</span>
+      <span class="un-teaser">Twelve more stories the film stamps with a question mark.</span>
+      <span class="un-cta"><span class="un-show">Show all 12</span><span class="un-hide">Hide these 12</span></span>
+    </summary>
     <p class="un-lead">The film&rsquo;s coin grid stamps twelve more dates with a question mark. They are not in the 34. Four could not be confirmed. The other eight are on the record, but they are a disaster rather than a close call, or how close they came is a matter of judgment. Each one links to where you can read more.</p>
 
     <h3 class="un-h">Could not be confirmed</h3>
@@ -1204,8 +1222,7 @@ footer.credits { max-width: 44rem; margin-inline: auto; padding-block: 3rem 4rem
 
 <article class="notes gutter" id="notes" aria-labelledby="notes-h">
 <header>
-  <p class="kicker" style="color: var(--graphite-soft)">Hold Fire &middot; Liner notes</p>
-  <h2 class="big" id="notes-h">Notes on the lines</h2>
+  <h2 class="big" id="notes-h">Liner Notes</h2>
 </header>
 
 <section id="n-count">
